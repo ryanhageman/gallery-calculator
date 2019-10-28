@@ -1,0 +1,47 @@
+.c-calculator {
+  display: grid;
+  justify-content: center;
+  margin: 1rem;
+
+  &__title {
+    font-size: 3rem;
+    justify-self: center;
+  }
+
+  &__subtitle {
+    font-size: 2.4rem;
+    justify-self: center;
+  }
+
+  &__heading {
+    font-size: 2.4rem;
+
+    &--form-field {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__input {
+    &--text {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__form-ul {
+    list-style: none;
+  }
+
+  &__form-li {
+    font-size: 1.6rem;
+  }
+
+  &__form-button {
+    font-size: 1.6rem;
+  }
+
+  &__price {
+    font-size: 2.4rem;
+    justify-self: center;
+    padding: 1rem;
+  }
+}
