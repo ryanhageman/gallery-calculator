@@ -8,54 +8,42 @@ div class="c-calculator"
   form
     div
       label> class="c-calculator__heading--form-field" Length:
-      input type="text" class="c-calculator__input--text"
+      input type="text" class="c-calculator__input--text js-calculator__length" onkeyup="setLength()"
 
     div
       label> class="c-calculator__heading--form-field" Width:
-      input type="text" class="c-calculator__input--text"
+      input type="text" class="c-calculator__input--text js-calculator__width" onkeyup="setWidth()"
 
     fieldset
       legend> class="c-calculator__heading--form-field" Type:
 
       ul class="c-calculator__form-ul"
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio" name="type" value="print-paper"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-paper" onclick="setType()"
           label< Print: Paper
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio" name="type" value="print-canvas"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-canvas" onclick="setType()"
           label< Print: Canvas
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio" name="type" value="original-paper"
-          label< Original: Paper
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-js" onclick="setType()"
+          label< Original: JS
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio" name="type" value="original-canvas"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-canvas" onclick="setType()"
           label< Original: Canvas
 
-    button class="c-calculator__form-button" Get Price
+    button class="c-calculator__form-button js-calculator__get-price-button" Get Price
 
-  div class="c-calculator__price" $375
+  div class="c-calculator__price js-calculator__price"
 
-  div class="c-calculator__heading" Prints (Per linear inch)
+  div class="c-calculator__heading" Prints
 
-  form
-    div
-      label class="c-calculator__heading--form-field" Paper: $
-      input type="text" class="c-calculator__input--text"
-
-    div
-      label class="c-calculator__heading--form-field" Canvas: $
-      input type="text" class="c-calculator__input--text"
+  div class="c-calculator__price-constant js-calculator__print-paper-constant"
+  div class="c-calculator__price-constant js-calculator__print-canvas-constant"
 
   div class="c-calculator__heading" Originals (Per square inch)
 
-  form
-    div
-      label class="c-calculator__heading--form-field" JS: $
-      input type="text" class="c-calculator__input--text"
-
-    div
-      label class="c-calculator__heading--form-field" Canvas: $
-      input type="text" class="c-calculator__input--text"
+  div class="c-calculator__price-constant js-calculator__original-jackson-square-constant"
+  div class="c-calculator__price-constant js-calculator__original-canvas-constant"
 
   div Prints
   table
@@ -260,5 +248,5 @@ div class="c-calculator"
     tr
       td 40
       td 53
-      td $820
-      td $2475
+      td $815
+      td $2460
