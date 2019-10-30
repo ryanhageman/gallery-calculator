@@ -9,6 +9,12 @@ end
 
 activate :livereload
 
+activate  :external_pipeline,
+          name: :webpack,
+          command: build? ? 'yarn run build' : 'yarn run start',
+          source: 'site.js',
+          latency: 1
+
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
