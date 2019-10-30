@@ -104,18 +104,6 @@ class Calculator {
   }
 }
 
-let clear = () => {
-  document.querySelector('.js-calculator__length').value = ''
-  document.querySelector('.js-calculator__width').value = ''
-  clearRadioButtons()
-}
-
-let clearRadioButtons = () => {
-  document.querySelectorAll('.js-calculator__type').forEach((button) => {
-    if (button.checked) { button.checked = false }
-  })
-}
-
 let showPaperPrintPrice = () => {
   document.querySelector('.js-calculator__print-paper').innerHTML = `Paper: $${calculator.Prints.paper} / linear inch`
 }
@@ -149,7 +137,6 @@ let showPrices = () => {
 let calculator = new Calculator
 
 document.addEventListener('DOMContentLoaded', function () {
-  clear()
   showPrices()
   activateCalculatorButton()
 });

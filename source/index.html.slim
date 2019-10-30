@@ -5,30 +5,30 @@ div class="c-calculator"
 
   div class="c-calculator__heading" Calculate Price
 
-  form
+  form data-controller="calculator"
     div
       label> class="c-calculator__heading--form-field" Length:
-      input type="text" class="c-calculator__input--text js-calculator__length" onkeyup="calculator.setLength(value)"
+      input type="text" class="c-calculator__input--text js-calculator__length" data-target="calculator.length" onkeyup="calculator.setLength(value)"
 
     div
       label> class="c-calculator__heading--form-field" Width:
-      input type="text" class="c-calculator__input--text js-calculator__width" onkeyup="calculator.setWidth(value)"
+      input type="text" class="c-calculator__input--text js-calculator__width" data-target="calculator.width" onkeyup="calculator.setWidth(value)"
 
     fieldset
       legend> class="c-calculator__heading--form-field" Type:
 
       ul class="c-calculator__form-ul"
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-paper" onclick="calculator.setType(value)"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="print-paper" onclick="calculator.setType(value)"
           label< Print: Paper
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-canvas" onclick="calculator.setType(value)"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="print-canvas" onclick="calculator.setType(value)"
           label< Print: Canvas
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-js" onclick="calculator.setType(value)"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="original-js" onclick="calculator.setType(value)"
           label< Original: JS
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-canvas" onclick="calculator.setType(value)"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="original-canvas" onclick="calculator.setType(value)"
           label< Original: Canvas
 
     button class="c-calculator__form-button js-calculator__get-price-button" Get Price
