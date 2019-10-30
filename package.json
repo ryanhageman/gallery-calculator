@@ -1,0 +1,8 @@
+{
+  "name": "d_boyd_gallery_pricing",
+  "version": "1.0.0",
+  "description": "Price calculator for D. Boyd Gallery",
+  "main": "index.js",
+  "author": "Ryan Hageman <improv42@gmail.com>",
+  "license": "MIT"
+}
