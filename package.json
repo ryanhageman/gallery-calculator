@@ -6,11 +6,14 @@
   "author": "Ryan Hageman <improv42@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start":  "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --watch -d --color",
+    "start": "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --watch -d --color",
     "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --bail -p"
   },
   "devDependencies": {
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "stimulus": "^1.1.1"
   }
 }
