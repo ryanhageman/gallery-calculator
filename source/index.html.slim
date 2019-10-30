@@ -8,27 +8,27 @@ div class="c-calculator"
   form
     div
       label> class="c-calculator__heading--form-field" Length:
-      input type="text" class="c-calculator__input--text js-calculator__length" onkeyup="setLength()"
+      input type="text" class="c-calculator__input--text js-calculator__length" onkeyup="calculator.setLength(value)"
 
     div
       label> class="c-calculator__heading--form-field" Width:
-      input type="text" class="c-calculator__input--text js-calculator__width" onkeyup="setWidth()"
+      input type="text" class="c-calculator__input--text js-calculator__width" onkeyup="calculator.setWidth(value)"
 
     fieldset
       legend> class="c-calculator__heading--form-field" Type:
 
       ul class="c-calculator__form-ul"
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-paper" onclick="setType()"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-paper" onclick="calculator.setType(value)"
           label< Print: Paper
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-canvas" onclick="setType()"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-canvas" onclick="calculator.setType(value)"
           label< Print: Canvas
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-js" onclick="setType()"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-js" onclick="calculator.setType(value)"
           label< Original: JS
         li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-canvas" onclick="setType()"
+          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-canvas" onclick="calculator.setType(value)"
           label< Original: Canvas
 
     button class="c-calculator__form-button js-calculator__get-price-button" Get Price
@@ -37,13 +37,13 @@ div class="c-calculator"
 
   div class="c-calculator__heading" Prints
 
-  div class="c-calculator__price-constant js-calculator__print-paper-constant"
-  div class="c-calculator__price-constant js-calculator__print-canvas-constant"
+  div class="c-calculator__price-constant js-calculator__print-paper"
+  div class="c-calculator__price-constant js-calculator__print-canvas"
 
   div class="c-calculator__heading" Originals (Per square inch)
 
-  div class="c-calculator__price-constant js-calculator__original-jackson-square-constant"
-  div class="c-calculator__price-constant js-calculator__original-canvas-constant"
+  div class="c-calculator__price-constant js-calculator__original-jackson-square"
+  div class="c-calculator__price-constant js-calculator__original-canvas"
 
   div Prints
   table
