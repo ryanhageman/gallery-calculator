@@ -5,45 +5,80 @@ div class="c-calculator"
 
   div class="c-calculator__heading" Calculate Price
 
-  form data-controller="calculator"
-    div
-      label> class="c-calculator__heading--form-field" Length:
-      input type="text" class="c-calculator__input--text js-calculator__length" data-target="calculator.length" onkeyup="calculator.setLength(value)"
+  div { data-controller="calculator"
+        data-calculator-artwork-type=""
+        data-calculator-price-constant=""
+        data-calculator-print-paper="5"
+        data-calculator-print-canvas="7"
+        data-calculator-original-js="0.385"
+        data-calculator-original-canvas="1.16"}
 
-    div
-      label> class="c-calculator__heading--form-field" Width:
-      input type="text" class="c-calculator__input--text js-calculator__width" data-target="calculator.width" onkeyup="calculator.setWidth(value)"
+    form
+      div
+        label> class="c-calculator__heading--form-field" Length:
+        input { type="text"
+                class="c-calculator__input--text"
+                data-target="calculator.length" }
 
-    fieldset
-      legend> class="c-calculator__heading--form-field" Type:
+      div
+        label> class="c-calculator__heading--form-field" Width:
+        input { type="text"
+                class="c-calculator__input--text"
+                data-target="calculator.width" }
 
-      ul class="c-calculator__form-ul"
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="print-paper" onclick="calculator.setType(value)"
-          label< Print: Paper
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="print-canvas" onclick="calculator.setType(value)"
-          label< Print: Canvas
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="original-js" onclick="calculator.setType(value)"
-          label< Original: JS
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" data-target="calculator.type" name="type" value="original-canvas" onclick="calculator.setType(value)"
-          label< Original: Canvas
+      fieldset
+        legend> class="c-calculator__heading--form-field" Type:
 
-    button class="c-calculator__form-button js-calculator__get-price-button" Get Price
+        ul class="c-calculator__form-ul"
+          li class="c-calculator__form-li"
+            input { type="radio"
+                    name="artwork-type"
+                    value="print-paper"
+                    class="c-calculator__input--radio"
+                    data-target="calculator.typeSelector"
+                    data-action="calculator#ArtworkType" }
+            label< Print: Paper
 
-  div class="c-calculator__price js-calculator__price"
+          li class="c-calculator__form-li"
+            input { type="radio"
+                    name="artwork-type"
+                    value="print-canvas"
+                    class="c-calculator__input--radio"
+                    data-target="calculator.typeSelector"
+                    data-action="calculator#ArtworkType" }
+            label< Print: Canvas
 
-  div class="c-calculator__heading" Prints
+          li class="c-calculator__form-li"
+            input { type="radio"
+                    name="artwork-type"
+                    value="original-js"
+                    class="c-calculator__input--radio"
+                    data-target="calculator.typeSelector"
+                    data-action="calculator#ArtworkType" }
+            label< Original: JS
 
-  div class="c-calculator__price-constant js-calculator__print-paper"
-  div class="c-calculator__price-constant js-calculator__print-canvas"
+          li class="c-calculator__form-li"
+            input { type="radio"
+                    name="artwork-type"
+                    value="original-canvas"
+                    class="c-calculator__input--radio"
+                    data-target="calculator.typeSelector"
+                    data-action="calculator#ArtworkType" }
+            label< Original: Canvas
 
-  div class="c-calculator__heading" Originals (Per square inch)
+      button class="c-calculator__form-button" data-action="calculator#Price" Get Price
 
-  div class="c-calculator__price-constant js-calculator__original-jackson-square"
-  div class="c-calculator__price-constant js-calculator__original-canvas"
+    div class="c-calculator__price" data-target="calculator.price"
+
+    div class="c-calculator__heading" Prints
+
+    div class="c-calculator__price-constant" data-target="calculator.printPaper"
+    div class="c-calculator__price-constant" data-target="calculator.printCanvas"
+
+    div class="c-calculator__heading" Originals (Per square inch)
+
+    div class="c-calculator__price-constant" data-target="calculator.originalJs"
+    div class="c-calculator__price-constant" data-target="calculator.originalCanvas"
 
   div Prints
   table
