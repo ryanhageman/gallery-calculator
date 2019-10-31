@@ -17,12 +17,12 @@ export default class extends Controller {
     this._showPrices()
   }
 
-  ArtworkType() {
+  artworkType() {
     this.data.set('artworkType', event.target.value)
     this.data.set('priceConstant', this._setPriceConstant())
   }
 
-  Price() {
+  price() {
     event.preventDefault()
     this.priceTarget.innerHTML = `$${this._calculatePrice()}`
   }
@@ -112,27 +112,39 @@ export default class extends Controller {
     )
   }
 
+  _clearArtworkTypeSelectors() {
+    this.typeSelectorTargets.forEach(item => (item.checked = false))
+  }
+
   _clearForm() {
     this.lengthTarget.value = ''
     this.widthTarget.value = ''
-    this.typeSelectorTargets.forEach(item => (item.checked = false))
+    this._clearArtworkTypeSelectors()
     this.data.set('artworkType', '')
   }
 
   _showPaperPrintPrice() {
-    this.printPaperTarget.innerHTML = `Paper: $${this.data.get('printPaper')} / linear inch`
+    this.printPaperTarget.innerHTML = `Paper: $${this.data.get(
+      'printPaper'
+    )} / linear inch`
   }
 
   _showCanvasPrintPrice() {
-    this.printCanvasTarget.innerHTML = `Canvas: $${this.data.get('printCanvas')} / linear inch`
+    this.printCanvasTarget.innerHTML = `Canvas: $${this.data.get(
+      'printCanvas'
+    )} / linear inch`
   }
 
   _showJacksonSquareCanvasPrice() {
-    this.originalJsTarget.innerHTML = `JS: $${this.data.get('originalJs')} / square inch`
+    this.originalJsTarget.innerHTML = `JS: $${this.data.get(
+      'originalJs'
+    )} / square inch`
   }
 
   _showCanvasOriginalPrice() {
-    this.originalCanvasTarget.innerHTML = `Canvas: $${this.data.get('originalCanvas')} / square inch`
+    this.originalCanvasTarget.innerHTML = `Canvas: $${this.data.get(
+      'originalCanvas'
+    )} / square inch`
   }
 
   _showPrices() {

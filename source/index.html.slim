@@ -1,84 +1,81 @@
-div class="c-calculator"
+section { class="c-calculator"
+          data-controller="calculator"
+          data-calculator-artwork-type=""
+          data-calculator-price-constant=""
+          data-calculator-print-paper="5"
+          data-calculator-print-canvas="7"
+          data-calculator-original-js="0.385"
+          data-calculator-original-canvas="1.16" }
+
   div class="c-calculator__title" Price Calculator
   div class="c-calculator__subtitle" D. Boyd Gallery
 
+  form
+    div
+      label> class="c-calculator__heading--form-field" Length:
+      input { type="text"
+              class="c-calculator__input--text"
+              data-target="calculator.length" }
 
-  div class="c-calculator__heading" Calculate Price
+    div
+      label> class="c-calculator__heading--form-field" Width:
+      input { type="text"
+              class="c-calculator__input--text"
+              data-target="calculator.width" }
 
-  div { data-controller="calculator"
-        data-calculator-artwork-type=""
-        data-calculator-price-constant=""
-        data-calculator-print-paper="5"
-        data-calculator-print-canvas="7"
-        data-calculator-original-js="0.385"
-        data-calculator-original-canvas="1.16"}
+    fieldset
+      legend> class="c-calculator__heading--form-field" Type:
 
-    form
-      div
-        label> class="c-calculator__heading--form-field" Length:
-        input { type="text"
-                class="c-calculator__input--text"
-                data-target="calculator.length" }
+      ul class="c-calculator__form-ul"
+        li class="c-calculator__form-li"
+          input { type="radio"
+                  name="artwork-type"
+                  value="print-paper"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
+          label< Print: Paper
 
-      div
-        label> class="c-calculator__heading--form-field" Width:
-        input { type="text"
-                class="c-calculator__input--text"
-                data-target="calculator.width" }
+        li class="c-calculator__form-li"
+          input { type="radio"
+                  name="artwork-type"
+                  value="print-canvas"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
+          label< Print: Canvas
 
-      fieldset
-        legend> class="c-calculator__heading--form-field" Type:
+        li class="c-calculator__form-li"
+          input { type="radio"
+                  name="artwork-type"
+                  value="original-js"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
+          label< Original: JS
 
-        ul class="c-calculator__form-ul"
-          li class="c-calculator__form-li"
-            input { type="radio"
-                    name="artwork-type"
-                    value="print-paper"
-                    class="c-calculator__input--radio"
-                    data-target="calculator.typeSelector"
-                    data-action="calculator#ArtworkType" }
-            label< Print: Paper
+        li class="c-calculator__form-li"
+          input { type="radio"
+                  name="artwork-type"
+                  value="original-canvas"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
+          label< Original: Canvas
 
-          li class="c-calculator__form-li"
-            input { type="radio"
-                    name="artwork-type"
-                    value="print-canvas"
-                    class="c-calculator__input--radio"
-                    data-target="calculator.typeSelector"
-                    data-action="calculator#ArtworkType" }
-            label< Print: Canvas
+    button class="c-calculator__form-button" data-action="calculator#price" Get Price
 
-          li class="c-calculator__form-li"
-            input { type="radio"
-                    name="artwork-type"
-                    value="original-js"
-                    class="c-calculator__input--radio"
-                    data-target="calculator.typeSelector"
-                    data-action="calculator#ArtworkType" }
-            label< Original: JS
+  div class="c-calculator__price" data-target="calculator.price"
 
-          li class="c-calculator__form-li"
-            input { type="radio"
-                    name="artwork-type"
-                    value="original-canvas"
-                    class="c-calculator__input--radio"
-                    data-target="calculator.typeSelector"
-                    data-action="calculator#ArtworkType" }
-            label< Original: Canvas
+  div class="c-calculator__heading" Prints
 
-      button class="c-calculator__form-button" data-action="calculator#Price" Get Price
+  div class="c-calculator__price-constant" data-target="calculator.printPaper"
+  div class="c-calculator__price-constant" data-target="calculator.printCanvas"
 
-    div class="c-calculator__price" data-target="calculator.price"
+  div class="c-calculator__heading" Originals (Per square inch)
 
-    div class="c-calculator__heading" Prints
-
-    div class="c-calculator__price-constant" data-target="calculator.printPaper"
-    div class="c-calculator__price-constant" data-target="calculator.printCanvas"
-
-    div class="c-calculator__heading" Originals (Per square inch)
-
-    div class="c-calculator__price-constant" data-target="calculator.originalJs"
-    div class="c-calculator__price-constant" data-target="calculator.originalCanvas"
+  div class="c-calculator__price-constant" data-target="calculator.originalJs"
+  div class="c-calculator__price-constant" data-target="calculator.originalCanvas"
 
   div Prints
   table
