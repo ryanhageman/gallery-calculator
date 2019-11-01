@@ -15,14 +15,16 @@ section { class="c-calculator"
     .c-calculator__form-field
       label.c-calculator__form-heading> Length
       br
-      input { type="text"
+      input { type="number"
+              pattern="[0-9]*"
               class="c-calculator__form-input"
               data-target="calculator.length" }
 
     .c-calculator__form-field
       label.c-calculator__form-heading> Width
       br
-      input { type="text"
+      input { type="number"
+              pattern="[0-9]*"
               class="c-calculator__form-input"
               data-target="calculator.width" }
 
