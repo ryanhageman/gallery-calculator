@@ -1,0 +1,8 @@
+---
+prints:
+  paper: 5
+  canvas: 7
+
+originals:
+  jackson_square: 0.385
+  canvas: 1.16
