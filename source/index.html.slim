@@ -2,32 +2,32 @@ section { class="c-calculator"
           data-controller="calculator"
           data-calculator-artwork-type=""
           data-calculator-price-constant=""
-          data-calculator-print-paper="#{data.prices.prints.paper}"
-          data-calculator-print-canvas="#{data.prices.prints.canvas}"
-          data-calculator-original-js="#{data.prices.originals.jackson_square}"
-          data-calculator-original-canvas="#{data.prices.originals.canvas}" }
+          data-calculator-print-paper=(data.prices.prints.paper)
+          data-calculator-print-canvas=(data.prices.prints.canvas)
+          data-calculator-original-js=(data.prices.originals.jackson_square)
+          data-calculator-original-canvas=(data.prices.originals.canvas) }
 
-  div class="c-calculator__title" Price Calculator
-  div class="c-calculator__subtitle" D. Boyd Gallery
+  .c-calculator__title Price Calculator
+  .c-calculator__subtitle D. Boyd Gallery
 
   form
     div
-      label> class="c-calculator__heading--form-field" Length:
+      label.c-calculator__heading--form-field> Length:
       input { type="text"
               class="c-calculator__input--text"
               data-target="calculator.length" }
 
     div
-      label> class="c-calculator__heading--form-field" Width:
+      label.c-calculator__heading--form-field> Width:
       input { type="text"
               class="c-calculator__input--text"
               data-target="calculator.width" }
 
     fieldset
-      legend> class="c-calculator__heading--form-field" Type:
+      legend.c-calculator__heading--form-field Type:
 
-      ul class="c-calculator__form-ul"
-        li class="c-calculator__form-li"
+      ul.c-calculator__form-ul
+        li.c-calculator__form-li
           input { type="radio"
                   name="artwork-type"
                   value="print-paper"
@@ -36,7 +36,7 @@ section { class="c-calculator"
                   data-action="calculator#artworkType" }
           label< Print: Paper
 
-        li class="c-calculator__form-li"
+        li.c-calculator__form-li
           input { type="radio"
                   name="artwork-type"
                   value="print-canvas"
@@ -45,7 +45,7 @@ section { class="c-calculator"
                   data-action="calculator#artworkType" }
           label< Print: Canvas
 
-        li class="c-calculator__form-li"
+        li.c-calculator__form-li
           input { type="radio"
                   name="artwork-type"
                   value="original-js"
@@ -54,7 +54,7 @@ section { class="c-calculator"
                   data-action="calculator#artworkType" }
           label< Original: JS
 
-        li class="c-calculator__form-li"
+        li.c-calculator__form-li
           input { type="radio"
                   name="artwork-type"
                   value="original-canvas"
@@ -63,21 +63,21 @@ section { class="c-calculator"
                   data-action="calculator#artworkType" }
           label< Original: Canvas
 
-    button class="c-calculator__form-button" data-action="calculator#price" Get Price
+    button.c-calculator__form-button data-action="calculator#price" Get Price
 
-  div class="c-calculator__price" data-target="calculator.price"
+  .c-calculator__price data-target="calculator.price"
 
-  div class="c-calculator__heading" Prints
+  .c-calculator__heading Prints
 
-  div class="c-calculator__price-constant" data-target="calculator.printPaper"
-  div class="c-calculator__price-constant" data-target="calculator.printCanvas"
+  .c-calculator__price-constant data-target="calculator.printPaper"
+  .c-calculator__price-constant data-target="calculator.printCanvas"
 
-  div class="c-calculator__heading" Originals (Per square inch)
+  .c-calculator__heading Originals (Per square inch)
 
-  div class="c-calculator__price-constant" data-target="calculator.originalJs"
-  div class="c-calculator__price-constant" data-target="calculator.originalCanvas"
+  .c-calculator__price-constant data-target="calculator.originalJs"
+  .c-calculator__price-constant data-target="calculator.originalCanvas"
 
-  h1 Prints
+  .c-calculator__heading Prints
 
   table
     tr
@@ -92,7 +92,7 @@ section { class="c-calculator"
         td $#{price_per_linear_inch(size[0], size[1], data.prices.prints.paper)}
         td $#{price_per_linear_inch(size[0], size[1], data.prices.prints.canvas)}
 
-  h1 Originals - Canvas
+  .c-calculator__heading  Originals - Canvas
 
   table
     tr
