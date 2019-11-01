@@ -1,252 +1,108 @@
-div class="c-calculator"
-  div class="c-calculator__title" Price Calculator
-  div class="c-calculator__subtitle" D. Boyd Gallery
+section { class="c-calculator"
+          data-controller="calculator"
+          data-calculator-artwork-type=""
+          data-calculator-price-constant=""
+          data-calculator-print-paper=(data.prices.prints.paper)
+          data-calculator-print-canvas=(data.prices.prints.canvas)
+          data-calculator-original-js=(data.prices.originals.jackson_square)
+          data-calculator-original-canvas=(data.prices.originals.canvas) }
 
-
-  div class="c-calculator__heading" Calculate Price
+  .c-calculator__title Price Calculator
+  .c-calculator__subtitle D. Boyd Gallery
 
   form
     div
-      label> class="c-calculator__heading--form-field" Length:
-      input type="text" class="c-calculator__input--text js-calculator__length" onkeyup="calculator.setLength(value)"
+      label.c-calculator__heading--form-field> Length:
+      input { type="text"
+              class="c-calculator__input--text"
+              data-target="calculator.length" }
 
     div
-      label> class="c-calculator__heading--form-field" Width:
-      input type="text" class="c-calculator__input--text js-calculator__width" onkeyup="calculator.setWidth(value)"
+      label.c-calculator__heading--form-field> Width:
+      input { type="text"
+              class="c-calculator__input--text"
+              data-target="calculator.width" }
 
     fieldset
-      legend> class="c-calculator__heading--form-field" Type:
+      legend.c-calculator__heading--form-field Type:
 
-      ul class="c-calculator__form-ul"
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-paper" onclick="calculator.setType(value)"
+      ul.c-calculator__form-ul
+        li.c-calculator__form-li
+          input { type="radio"
+                  name="artwork-type"
+                  value="print-paper"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
           label< Print: Paper
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="print-canvas" onclick="calculator.setType(value)"
+
+        li.c-calculator__form-li
+          input { type="radio"
+                  name="artwork-type"
+                  value="print-canvas"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
           label< Print: Canvas
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-js" onclick="calculator.setType(value)"
+
+        li.c-calculator__form-li
+          input { type="radio"
+                  name="artwork-type"
+                  value="original-js"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
           label< Original: JS
-        li class="c-calculator__form-li"
-          input type="radio" class="c-calculator__input--radio js-calculator__type" name="type" value="original-canvas" onclick="calculator.setType(value)"
+
+        li.c-calculator__form-li
+          input { type="radio"
+                  name="artwork-type"
+                  value="original-canvas"
+                  class="c-calculator__input--radio"
+                  data-target="calculator.typeSelector"
+                  data-action="calculator#artworkType" }
           label< Original: Canvas
 
-    button class="c-calculator__form-button js-calculator__get-price-button" Get Price
+    button.c-calculator__form-button data-action="calculator#price" Get Price
 
-  div class="c-calculator__price js-calculator__price"
+  .c-calculator__price data-target="calculator.price"
 
-  div class="c-calculator__heading" Prints
+  .c-calculator__heading Prints
 
-  div class="c-calculator__price-constant js-calculator__print-paper"
-  div class="c-calculator__price-constant js-calculator__print-canvas"
+  .c-calculator__price-constant data-target="calculator.printPaper"
+  .c-calculator__price-constant data-target="calculator.printCanvas"
 
-  div class="c-calculator__heading" Originals (Per square inch)
+  .c-calculator__heading Originals (Per square inch)
 
-  div class="c-calculator__price-constant js-calculator__original-jackson-square"
-  div class="c-calculator__price-constant js-calculator__original-canvas"
+  .c-calculator__price-constant data-target="calculator.originalJs"
+  .c-calculator__price-constant data-target="calculator.originalCanvas"
 
-  div Prints
+  .c-calculator__heading Prints
+
   table
     tr
       th Length
       th Width
       th Paper Print
       th Canvas Print
-    tr
-      td 6
-      td 8
-      td $70
-      td $100
-    tr
-      td 8
-      td 8
-      td $80
-      td $110
-    tr
-      td 8
-      td 10
-      td $90
-      td $125
-    tr
-      td 8
-      td 16
-      td $120
-      td $170
-    tr
-      td 9
-      td 12
-      td $105
-      td $145
-    tr
-      td 10
-      td 10
-      td $100
-      td $140
-    tr
-      td 11
-      td 14
-      td $125
-      td $175
-    tr
-      td 12
-      td 12
-      td $120
-      td $170
-    tr
-      td 12
-      td 16
-      td $140
-      td $195
-    tr
-      td 18
-      td 24
-      td $210
-      td $295
-    tr
-      td 20
-      td 20
-      td $200
-      td $280
-    tr
-      td 24
-      td 24
-      td $240
-      td $335
-    tr
-      td 24
-      td 32
-      td $280
-      td $390
-    tr
-      td 30
-      td 30
-      td $300
-      td $420
-    tr
-      td 30
-      td 40
-      td $350
-      td $490
-    tr
-      td 36
-      td 36
-      td $360
-      td $505
-    tr
-      td 36
-      td 48
-      td $420
-      td $590
-    tr
-      td 40
-      td 40
-      td $400
-      td $560
-    tr
-      td 40
-      td 53
-      td $465
-      td $650
+    - data.sizes.each do |size|
+      tr
+        td = size[0]
+        td = size[1]
+        td $#{price_per_linear_inch(size[0], size[1], data.prices.prints.paper)}
+        td $#{price_per_linear_inch(size[0], size[1], data.prices.prints.canvas)}
 
-  div Original Canvas
+  .c-calculator__heading  Originals - Canvas
+
   table
     tr
       th Length
       th Width
       th Jackson Square
-      th Not Jackson Square
-    tr
-      td 6
-      td 8
-      td $20
-      td $55
-    tr
-      td 8
-      td 8
-      td $25
-      td $75
-    tr
-      td 8
-      td 10
-      td $30
-      td $90
-    tr
-      td 8
-      td 16
-      td $50
-      td $150
-    tr
-      td 9
-      td 12
-      td $40
-      td $125
-    tr
-      td 10
-      td 10
-      td $40
-      td $115
-    tr
-      td 11
-      td 14
-      td $60
-      td $180
-    tr
-      td 12
-      td 12
-      td $55
-      td $165
-    tr
-      td 12
-      td 16
-      td $75
-      td $220
-    tr
-      td 18
-      td 24
-      td $165
-      td $500
-    tr
-      td 20
-      td 20
-      td $155
-      td $465
-    tr
-      td 24
-      td 24
-      td $220
-      td $670
-    tr
-      td 24
-      td 32
-      td $295
-      td $890
-    tr
-      td 30
-      td 30
-      td $345
-      td $1045
-    tr
-      td 30
-      td 40
-      td $460
-      td $1390
-    tr
-      td 36
-      td 36
-      td $500
-      td $1500
-    tr
-      td 36
-      td 48
-      td $665
-      td $2005
-    tr
-      td 40
-      td 40
-      td $615
-      td $1855
-    tr
-      td 40
-      td 53
-      td $815
-      td $2460
+      th Canvas
+    - data.sizes.each do |size|
+      tr
+        td = size[0]
+        td = size[1]
+        td $#{price_per_square_inch(size[0], size[1], data.prices.originals.jackson_square)}
+        td $#{price_per_square_inch(size[0], size[1], data.prices.originals.canvas)}
