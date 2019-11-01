@@ -5,6 +5,15 @@
   justify-content: center;
   margin: 1rem;
 
+  @media (min-width: $tablet) {
+    margin: auto;
+    max-width: 80vw;
+  }
+
+  @media (min-width: $desktop) {
+    margin: auto;
+    max-width: 50vw;
+  }
 
   &__title {
     font-family: $font--heading;
