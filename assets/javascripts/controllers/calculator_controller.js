@@ -124,27 +124,23 @@ export default class extends Controller {
   }
 
   _showPaperPrintPrice() {
-    this.printPaperTarget.innerHTML = `Paper: $${this.data.get(
-      'printPaper'
-    )} / linear inch`
+    this.printPaperTarget.innerHTML = `Paper: $${this.data.get('printPaper')}`
   }
 
   _showCanvasPrintPrice() {
     this.printCanvasTarget.innerHTML = `Canvas: $${this.data.get(
       'printCanvas'
-    )} / linear inch`
+    )}`
   }
 
   _showJacksonSquareCanvasPrice() {
-    this.originalJsTarget.innerHTML = `JS: $${this.data.get(
-      'originalJs'
-    )} / square inch`
+    this.originalJsTarget.innerHTML = `JS: $${this.data.get('originalJs')}`
   }
 
   _showCanvasOriginalPrice() {
     this.originalCanvasTarget.innerHTML = `Canvas: $${this.data.get(
       'originalCanvas'
-    )} / square inch`
+    )}`
   }
 
   _showPrices() {
