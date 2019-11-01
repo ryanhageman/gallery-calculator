@@ -1,36 +1,67 @@
 .c-calculator {
   display: grid;
+  font-family: $font--body;
+  grid-template-columns: 1fr;
   justify-content: center;
   margin: 1rem;
 
 
   &__title {
+    font-family: $font--heading;
+    font-weight: bold;
     font-size: 3rem;
     justify-self: center;
   }
 
   &__subtitle {
+    font-family: $font--heading;
     font-size: 2.4rem;
     justify-self: center;
+  }
+
+  &__form {
+    background-color: $white;
+    border: 1px solid $black;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 1rem;
+    padding: 1rem;
   }
 
   &__heading {
+    font-family: $font--heading;
     font-size: 2.4rem;
     justify-self: center;
-
-    &--form-field {
-      font-size: 1.6rem;
-    }
   }
 
-  &__input {
-    &--text {
-      font-size: 1.6rem;
-    }
+  &__form-field {
+    margin: 1rem;
+  }
+
+  &__form-heading {
+    font-family: $font--heading;
+    font-size: 1.6rem;
+  }
+
+  &__form-input {
+    border: 1px solid $black--transparent;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+  }
+
+  &__form-fieldset {
+    border: 1px solid $black--transparent;
+    border-radius: 1rem;
+    margin: 1rem;
   }
 
   &__form-ul {
+    line-height: 2.3rem;
     list-style: none;
+    padding: 0 1rem;
   }
 
   &__form-li {
@@ -38,16 +69,18 @@
   }
 
   &__form-button {
+    background-color: $green;
+    border: 1px solid $green--border;
+    border-radius: 1rem;
     font-size: 1.6rem;
-  }
-
-  &__price {
-    font-size: 2.4rem;
-    justify-self: center;
+    margin: 1rem 0;
     padding: 1rem;
   }
 
-  &__price-constant {
-    font-size: 1.6rem;
+  &__price {
+    font-size: 4rem;
+    height: 4rem;
+    justify-self: center;
+    padding: 1rem;
   }
 }
