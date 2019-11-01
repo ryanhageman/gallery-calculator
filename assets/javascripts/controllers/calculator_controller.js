@@ -134,7 +134,7 @@ export default class extends Controller {
   }
 
   _showJacksonSquareCanvasPrice() {
-    this.originalJsTarget.innerHTML = `JS: $${this.data.get('originalJs')}`
+    this.originalJsTarget.innerHTML = `J. Square: $${this.data.get('originalJs')}`
   }
 
   _showCanvasOriginalPrice() {

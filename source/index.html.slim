@@ -52,7 +52,7 @@ section { class="c-calculator"
                   value="original-js"
                   data-target="calculator.typeSelector"
                   data-action="calculator#artworkType" }
-          label< Original: JS
+          label< Original: J. Square
 
         li.c-calculator__form-li
           input { type="radio"
@@ -79,32 +79,37 @@ section { class="c-calculator"
       .c-price-card__price-constant data-target="calculator.originalJs"
       .c-price-card__price-constant data-target="calculator.originalCanvas"
 
-  .c-calculator__heading Prints
+  .c-price-table
+    .c-price-table__title Standard Sizes
 
-  table
-    tr
-      th Length
-      th Width
-      th Paper Print
-      th Canvas Print
-    - data.sizes.each do |size|
+    .c-price-table__table-title Prints
+
+    table.c-price-table__table
       tr
-        td = size[0]
-        td = size[1]
-        td $#{price_per_linear_inch(size[0], size[1], data.prices.prints.paper)}
-        td $#{price_per_linear_inch(size[0], size[1], data.prices.prints.canvas)}
+        th.c-price-table__heading Length
+        th.c-price-table__heading Width
+        th.c-price-table__heading Paper Print
+        th.c-price-table__heading Canvas Print
+      - data.sizes.each do |size|
+        tr
+          td.c-price-table__data = size[0]
+          td.c-price-table__data = size[1]
+          td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.paper)}
+          td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.canvas)}
 
-  .c-calculator__heading  Originals - Canvas
+    .c-price-table__space-between-tables
 
-  table
-    tr
-      th Length
-      th Width
-      th Jackson Square
-      th Canvas
-    - data.sizes.each do |size|
+    .c-price-table__table-title  Originals - Canvas
+
+    table.c-price-table__table
       tr
-        td = size[0]
-        td = size[1]
-        td $#{price_per_square_inch(size[0], size[1], data.prices.originals.jackson_square)}
-        td $#{price_per_square_inch(size[0], size[1], data.prices.originals.canvas)}
+        th.c-price-table__heading Length
+        th.c-price-table__heading Width
+        th.c-price-table__heading J. Square
+        th.c-price-table__heading Canvas
+      - data.sizes.each do |size|
+        tr
+          td.c-price-table__data = size[0]
+          td.c-price-table__data = size[1]
+          td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.jackson_square)}
+          td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.canvas)}
