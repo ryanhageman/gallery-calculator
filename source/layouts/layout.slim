@@ -4,7 +4,13 @@ html
     meta charset="utf-8"
     meta http-equiv="x-ua-compatible" content="ie=edge"
     meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    meta name="apple-mobile-web-app-capable" content="yes"
+
     link { rel="preconnect" href="https://fonts.gstatic.com/" crossorigin }
+    link rel="apple-touch-icon" href="#{url_for 'images/gallery_calculator_icon.png'}"
+    link rel="apple-touch-startup-image" href="#{url_for 'images/launch_iphone.png'}"
+    link rel="apple-touch-startup-image" sizes="828x1792" href="#{url_for 'images/launch_iphone.png'}"
+    link rel="apple-touch-startup-image" sizes="1536x2048" href="#{url_for 'images/launch_ipad.png'}"
 
     title="Gallery Calculator"
 
