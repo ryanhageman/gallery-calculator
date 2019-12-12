@@ -1,6 +1,6 @@
 files:
   ignore:
-  - 'source/stylesheets/base/_normalize.scss'
+  - 'source/stylesheets/**/_normalize.scss'
 
 rules:
   class-name-format:
