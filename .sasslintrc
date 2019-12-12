@@ -1,0 +1,28 @@
+files:
+  ignore:
+  - 'source/stylesheets/base/_normalize.scss'
+
+rules:
+  class-name-format:
+    - 1
+    - convention: hyphenatedbem
+
+  variable-name-format:
+    - 1
+    - convention: hyphenatedbem
+
+  placeholder-name-format:
+    - 1
+    - convention: hyphenatedbem
+
+  placeholder-in-extend: 0
+
+  leading-zero:
+    - 1
+    - include: true
+
+  no-misspelled-properties:
+    - 1
+    - 'extra-properties':
+        - 'gap'
+        - 'row-gap'
