@@ -14,7 +14,10 @@
 @import 'tools/all';
 
 // 3. Generic
+@import 'generic/box-sizing';
 @import 'generic/normalize';
+@import 'generic/reset';
+@import 'generic/shared';
 
 // 4. Elements
 @import 'elements/html_selectors';
