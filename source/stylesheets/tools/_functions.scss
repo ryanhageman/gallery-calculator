@@ -1,0 +1,11 @@
+///*----------------------------------*\
+//  #FUNCTIONS
+//\*----------------------------------*/
+
+// Custom functions.
+
+// Convert any px value into its rem equivalent.
+@function rem($number) {
+  @return $number / $global-font-size * 1rem;
+}
+
