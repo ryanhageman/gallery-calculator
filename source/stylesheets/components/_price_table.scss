@@ -8,7 +8,7 @@
   padding: 1rem;
 
   &__title {
-    font-family: $font--heading;
+    font-family: $font-family--heading;
     font-size: 2.8rem;
     font-weight: bold;
     text-align: center;
@@ -21,7 +21,7 @@
   }
 
   &__table-title {
-    font-family: $font--heading;
+    font-family: $font-family--heading;
     font-size: 2.2rem;
     margin: 1rem 0;
   }
@@ -29,14 +29,14 @@
   &__heading {
     background-color: $white--background;
     border: 1px solid $black--transparent;
-    font-family: $font--heading;
+    font-family: $font-family--heading;
     font-size: 1.6rem;
     padding: 1.2rem 0;
   }
 
   &__data {
     border: 1px solid $black--transparent;
-    font-family: $font--body;
+    font-family: $font-family--body;
     font-size: 1.6rem;
     padding: 1rem 0;
     text-align: center;
