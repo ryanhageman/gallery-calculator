@@ -3,6 +3,24 @@
 //\*----------------------------------*/
 //
 
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url_for('fonts/lato-v16-latin-regular.woff2') format('woff2'),
+       url_for('fonts/lato-v16-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Josefin Sans SemiBold'), local('JosefinSans-SemiBold'),
+       url_for('fonts/josefin-sans-v14-latin-600.woff2') format('woff2'),
+       url_for('fonts/josefin-sans-v14-latin-600.woff') format('woff');
+}
+
 $font-family--body: Lato, 'Open Sans', Roboto, sans-serif;
 $font-family--heading: 'Josefin Sans', Oswald, 'Roboto Condensed', sans-serif;
 
