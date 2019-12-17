@@ -1,0 +1,18 @@
+.c-button {
+  align-items: center;
+  border-radius: $global-spacing-unit;
+  box-shadow: 0 2px 4px $color-shadow;
+  color: $color-text--primary;
+  display: flex;
+  font-family: $font-family--body;
+  font-size: 24px;
+  height: 48px;
+  justify-content: center;
+  width: 128px;
+
+  &.is-active {
+    background-color: $color-brand-primary--300;
+    color: $color-brand-primary--600;
+  }
+}
+
