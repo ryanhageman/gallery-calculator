@@ -14,7 +14,7 @@ $global-transition:   0.333333333s;
 
 // Spacing
 $global-spacing-unit:       round($global-line-height);
-$global-spacing-unit-tiny:  round($global-spacing-unit / 4);
+$global-spacing-unit-tiny:  round($global-spacing-unit / 6);
 $global-spacing-unit-small: round($global-spacing-unit / 2);
 $global-spacing-unit-large: round($global-spacing-unit * 2);
 $global-spacing-unit-huge:  round($global-spacing-unit * 4);

@@ -1,0 +1,19 @@
+.c-answer-card {
+  align-content: center;
+  background-color: $color-white;
+  box-shadow: 0 4px 6px $color-shadow, 0 9px 14px $color-shadow--light;
+  display: grid;
+  height: 192px;
+  text-align: center;
+
+  &__heading {
+    color: $color-text--secondary;
+    margin-bottom: $global-spacing-unit-tiny * 2;
+  }
+
+  &__price {
+    font-family: $font-family--heading;
+    font-size: 48px;
+    font-weight: $font-weight--bold;
+  }
+}

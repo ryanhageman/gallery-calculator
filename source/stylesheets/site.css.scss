@@ -29,9 +29,14 @@
 
 // 5. Objects
 
+@import 'objects/layout';
+
 // 6. Components
 @import 'components/calculator';
 @import 'components/price_card';
 @import 'components/price_table';
+
+@import 'components/logo';
+@import 'components/answer_card';
 
 // 7. Utilities
