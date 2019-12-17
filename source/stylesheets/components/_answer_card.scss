@@ -4,7 +4,9 @@
   box-shadow: 0 4px 6px $color-shadow, 0 9px 14px $color-shadow--light;
   display: grid;
   height: 192px;
+  justify-self: center;
   text-align: center;
+  width: 384px;
 
   &__heading {
     color: $color-text--secondary;
