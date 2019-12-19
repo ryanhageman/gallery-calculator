@@ -5,14 +5,18 @@ form.c-calculator-form
     br
     input { type="number"
             pattern="[0-9]*"
-            class="c-calculator-form__input" }
+            class="c-calculator-form__input"
+            data-target="calculator.length"
+            data-action="keyup->calculator#updateCardSize" }
 
   .c-calculator-form__field
     label.c-calculator-form__heading> Width
     br
     input { type="number"
             pattern="[0-9]*"
-            class="c-calculator-form__input" }
+            class="c-calculator-form__input"
+            data-target="calculator.width"
+            data-action="keyup->calculator#updateCardSize" }
 
   .c-choice-button__group
     .c-choice-button

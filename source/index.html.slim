@@ -5,7 +5,9 @@
     .c-button.is-active Calculator
     .c-button Tables
 
-  .c-calculator
+  section { class="c-calculator"
+            data-controller="calculator"
+            data-calculator-size-message="Ready..."
+            data-calculator-chosen-type-message="(◕‿◕)" }
     == partial 'answer_card'
-
     == partial 'calculator_form'
