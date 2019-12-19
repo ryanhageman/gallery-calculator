@@ -1,11 +1,13 @@
 .c-answer-card {
   align-content: center;
   background-color: $color-white;
+  border-radius: $global-spacing-unit-tiny;
   box-shadow: 0 4px 6px $color-shadow, 0 9px 14px $color-shadow--light;
   display: grid;
   height: 192px;
   justify-self: center;
   margin-bottom: $global-spacing-unit;
+  max-width: 90vw;
   text-align: center;
   width: 384px;
 
