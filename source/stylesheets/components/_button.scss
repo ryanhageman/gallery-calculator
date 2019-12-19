@@ -12,7 +12,27 @@
 
   &.is-active {
     background-color: $color-brand-primary--300;
-    color: $color-brand-primary--600;
+    color: $color-brand-primary--700;
+  }
+
+  &--large {
+    height: 64px;
+    width: 182px;
+  }
+
+  &--submit {
+    background-color: $color-success--700;
+    color: $color-white;
+    height: 64px;
+    margin-bottom: $global-spacing-unit-large;
+    width: 100%;
+
+    &.is-inactive {
+      background-color: $color-brand-primary--100;
+      border: 1px solid $color-text--tertiary;
+      box-shadow: 0 0 0 $color-brand-primary--100;
+      color: $color-text--tertiary;
+    }
   }
 }
 

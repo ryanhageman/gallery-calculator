@@ -1,0 +1,76 @@
+form.c-calculator-form
+
+  .c-calculator-form__field
+    label.c-calculator-form__heading> Length
+    br
+    input { type="number"
+            pattern="[0-9]*"
+            class="c-calculator-form__input" }
+
+  .c-calculator-form__field
+    label.c-calculator-form__heading> Width
+    br
+    input { type="number"
+            pattern="[0-9]*"
+            class="c-calculator-form__input" }
+
+  .c-choice-button__group
+    .c-choice-button
+      input { type="radio"
+              name="artwork-type"
+              value="original"
+              id="original"
+              class="c-choice-button__input" }
+      label { class="c-button c-button--large c-choice-button__label" for="original" } Original
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-type"
+              value="print"
+              id="print"
+              class="c-choice-button__input" }
+      label { class="c-button c-button--large c-choice-button__label" for="print" } Print
+
+  .c-choice-button__dropdown
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--paper"
+              id="original--paper"
+              class="c-choice-button__input" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--paper" } Paper
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--canvas"
+              id="original--canvas"
+              class="c-choice-button__input" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--canvas" } Canvas
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--jackson-square"
+              id="original--jackson-square"
+              class="c-choice-button__input" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--jackson-square" } J. Square
+
+  .c-choice-button__dropdown.is-hidden
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="print--paper"
+              id="print--paper"
+              class="c-choice-button__input" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--paper" } Paper
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="print--canvas"
+              id="print--canvas"
+              class="c-choice-button__input" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--canvas" } Canvas
+
+  button.c-button.c-button--submit Get Price
