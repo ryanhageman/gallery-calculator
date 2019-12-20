@@ -191,12 +191,12 @@ export default class extends Controller {
   }
 
   _activateGetPriceButton() {
-    this.getPriceButtonTarget.classList.add('is-disabled')
-    this.getPriceButtonTarget.disabled = true
-
     if (this.lengthTarget.value && this.widthTarget.value && this.data.get('artworkMedium')) {
       this.getPriceButtonTarget.classList.remove('is-disabled')
       this.getPriceButtonTarget.disabled = false
+    } else {
+      this.getPriceButtonTarget.classList.add('is-disabled')
+      this.getPriceButtonTarget.disabled = true
     }
   }
 }
