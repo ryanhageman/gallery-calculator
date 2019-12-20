@@ -2,8 +2,8 @@
   = image_tag 'gallery-logo.png', class: 'c-logo'
 
   .c-navigation
-    .c-button.is-active Calculator
-    .c-button Tables
+    = link_to 'Calculator', '/', class: 'c-button is-active'
+    = link_to 'Tables', '/tables.html', class: 'c-button'
 
   section { class="c-calculator"
             data-controller="calculator"
