@@ -20,8 +20,8 @@
     display: none;
 
     &:checked + label {
-      background-color: $color-brand-primary--300;
-      color: $color-brand-primary--700;
+      background-color: $color-success--300;
+      color: $color-success--700;
     }
   }
 
