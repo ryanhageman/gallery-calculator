@@ -13,6 +13,7 @@ export default class extends Controller {
     'artworkMediumHeading',
     'categoryButton',
     'artworkMediumButton',
+    'getPriceButton',
     'originalsDropdown',
     'printsDropdown'
   ]
@@ -28,6 +29,7 @@ export default class extends Controller {
     this.data.set('sizeMessage', message)
     this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
     this._clearPrice()
+    this._activateGetPriceButton()
   }
 
   categorySelect() {
@@ -50,6 +52,7 @@ export default class extends Controller {
     this.data.set('priceConstant', this._setPriceConstant())
     this._updateAnswerCardArtworkMediumHeading()
     this._clearPrice()
+    this._activateGetPriceButton()
   }
 
   getPrice() {
@@ -185,5 +188,15 @@ export default class extends Controller {
       'chosenMediumMessage'
     )
     this._clearPrice()
+  }
+
+  _activateGetPriceButton() {
+    this.getPriceButtonTarget.classList.add('is-disabled')
+    this.getPriceButtonTarget.disabled = true
+
+    if (this.lengthTarget.value && this.widthTarget.value && this.data.get('artworkMedium')) {
+      this.getPriceButtonTarget.classList.remove('is-disabled')
+      this.getPriceButtonTarget.disabled = false
+    }
   }
 }
