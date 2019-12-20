@@ -1,40 +1,107 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
+  connect() {
+    this._resetPriceCard()
+  }
+
   static targets = [
     'length',
     'width',
-    'typeSelector',
     'price',
-    'printPaper',
-    'printCanvas',
-    'originalJs',
-    'originalCanvas'
+    'sizeInWords',
+    'artworkMediumHeading',
+    'categoryButton',
+    'artworkMediumButton',
+    'getPriceButton',
+    'originalsDropdown',
+    'printsDropdown'
   ]
 
-  connect() {
-    this._clearForm()
-    this._showPrices()
+  answerCardSizeHeading() {
+    let message = 'Ready...'
+
+    if (this.lengthTarget.value || this.widthTarget.value) {
+      message = `${this.lengthTarget.value || '-'} x ${this.widthTarget.value ||
+        '-'}`
+    }
+
+    this.data.set('sizeMessage', message)
+    this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
+    this._clearPrice()
+    this._activateGetPriceButton()
   }
 
-  artworkType() {
-    this.data.set('artworkType', event.target.value)
+  categorySelect() {
+    this.data.set('category', event.target.value)
+
+    switch (this.data.get('category')) {
+      case 'original':
+        this.originalsDropdownTarget.classList.remove('is-hidden')
+        this.printsDropdownTarget.classList.add('is-hidden')
+        break
+      case 'print':
+        this.printsDropdownTarget.classList.remove('is-hidden')
+        this.originalsDropdownTarget.classList.add('is-hidden')
+        break
+    }
+  }
+
+  artworkMediumSelect() {
+    this.data.set('artworkMedium', event.target.value)
     this.data.set('priceConstant', this._setPriceConstant())
+    this._updateAnswerCardArtworkMediumHeading()
+    this._clearPrice()
+    this._activateGetPriceButton()
   }
 
-  price() {
+  getPrice() {
     event.preventDefault()
     this.priceTarget.innerHTML = `$${this._calculatePrice()}`
   }
 
+  _clearPrice() {
+    this.priceTarget.innerHTML = '$ -'
+  }
+
+  _updateAnswerCardArtworkMediumHeading() {
+    let message = '(◕‿◕)'
+
+    switch (this.data.get('artworkMedium')) {
+      case 'original--paper':
+        message = 'Paper Original'
+        break
+      case 'original--canvas':
+        message = 'Canvas Original'
+        break
+      case 'original--jackson-square':
+        message = 'Canvas for J. Square'
+        break
+      case 'print--paper':
+        message = 'Paper Print'
+        break
+      case 'print--canvas':
+        message = 'Canvas Print'
+        break
+      default:
+        message = '(◕‿◕)'
+    }
+
+    this.data.set('chosenMediumMessage', message)
+    this.artworkMediumHeadingTarget.innerHTML = this.data.get(
+      'chosenMediumMessage'
+    )
+  }
+
   _calculatePrice() {
-    let artwork_type = this.data.get('artworkType')
+    let artwork_type = this.data.get('artworkMedium')
     switch (artwork_type) {
-      case 'original-canvas':
-      case 'original-js':
+      case 'original--jackson-square':
+      case 'original--canvas':
         return this._roundPrice(this._calculatePricePerSquareInch())
-      case 'print-paper':
-      case 'print-canvas':
+      case 'original--paper':
+      case 'print--canvas':
+      case 'print--paper':
         return this._roundPrice(this._calculatePricePerLinearInch())
       default:
         return this._roundPrice('')
@@ -83,20 +150,23 @@ export default class extends Controller {
   }
 
   _setPriceConstant() {
-    let artwork_type = this.data.get('artworkType')
+    let artwork_type = this.data.get('artworkMedium')
     switch (artwork_type) {
-      case 'original-canvas':
+      case 'original--paper':
+        return this.data.get('originalPaper')
+      case 'original--canvas':
         return this.data.get('originalCanvas')
-      case 'original-js':
+      case 'original--jackson-square':
         return this.data.get('originalJs')
-      case 'print-paper':
+      case 'print--paper':
         return this.data.get('printPaper')
-      case 'print-canvas':
+      case 'print--canvas':
         return this.data.get('printCanvas')
       default:
         return 0
     }
   }
+
   _calculatePricePerSquareInch() {
     return (
       Number(this.lengthTarget.value) *
@@ -112,41 +182,21 @@ export default class extends Controller {
     )
   }
 
-  _clearArtworkTypeSelectors() {
-    this.typeSelectorTargets.forEach(item => (item.checked = false))
+  _resetPriceCard() {
+    this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
+    this.artworkMediumHeadingTarget.innerHTML = this.data.get(
+      'chosenMediumMessage'
+    )
+    this._clearPrice()
   }
 
-  _clearForm() {
-    this.lengthTarget.value = ''
-    this.widthTarget.value = ''
-    this._clearArtworkTypeSelectors()
-    this.data.set('artworkType', '')
-  }
-
-  _showPaperPrintPrice() {
-    this.printPaperTarget.innerHTML = `Paper: $${this.data.get('printPaper')}`
-  }
-
-  _showCanvasPrintPrice() {
-    this.printCanvasTarget.innerHTML = `Canvas: $${this.data.get(
-      'printCanvas'
-    )}`
-  }
-
-  _showJacksonSquareCanvasPrice() {
-    this.originalJsTarget.innerHTML = `J. Square: $${this.data.get('originalJs')}`
-  }
-
-  _showCanvasOriginalPrice() {
-    this.originalCanvasTarget.innerHTML = `Canvas: $${this.data.get(
-      'originalCanvas'
-    )}`
-  }
-
-  _showPrices() {
-    this._showPaperPrintPrice()
-    this._showCanvasPrintPrice()
-    this._showJacksonSquareCanvasPrice()
-    this._showCanvasOriginalPrice()
+  _activateGetPriceButton() {
+    if (this.lengthTarget.value && this.widthTarget.value && this.data.get('artworkMedium')) {
+      this.getPriceButtonTarget.classList.remove('is-disabled')
+      this.getPriceButtonTarget.disabled = false
+    } else {
+      this.getPriceButtonTarget.classList.add('is-disabled')
+      this.getPriceButtonTarget.disabled = true
+    }
   }
 }

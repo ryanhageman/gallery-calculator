@@ -1,0 +1,100 @@
+form.c-calculator-form
+
+  .c-calculator-form__field
+    label.c-calculator-form__heading> Length
+    br
+    input { type="number"
+            pattern="[0-9]*"
+            class="c-calculator-form__input"
+            data-target="calculator.length"
+            data-action="keyup->calculator#answerCardSizeHeading" }
+
+  .c-calculator-form__field
+    label.c-calculator-form__heading> Width
+    br
+    input { type="number"
+            pattern="[0-9]*"
+            class="c-calculator-form__input"
+            data-target="calculator.width"
+            data-action="keyup->calculator#answerCardSizeHeading" }
+
+  .c-choice-button__group
+    .c-choice-button
+      input { type="radio"
+              name="category"
+              value="original"
+              id="original"
+              class="c-choice-button__input"
+              checked=true
+              data-target="calculator.categoryButton"
+              data-action="calculator#categorySelect" }
+      label { class="c-button c-button--large c-choice-button__label" for="original" } Original
+
+    .c-choice-button
+      input { type="radio"
+              name="category"
+              value="print"
+              id="print"
+              class="c-choice-button__input"
+              data-target="calculator.categoryButton"
+              data-action="calculator#categorySelect" }
+      label { class="c-button c-button--large c-choice-button__label" for="print" } Print
+
+  div { class="c-choice-button__dropdown"
+        data-target="calculator.originalsDropdown" }
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--paper"
+              id="original--paper"
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--paper" } Paper
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--canvas"
+              id="original--canvas"
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--canvas" } Canvas
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--jackson-square"
+              id="original--jackson-square"
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--jackson-square" } J. Square
+
+  div { class="c-choice-button__dropdown is-hidden"
+        data-target="calculator.printsDropdown" }
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="print--paper"
+              id="print--paper"
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--paper" } Paper
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="print--canvas"
+              id="print--canvas"
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--canvas" } Canvas
+
+  button {  class="c-button c-button--submit is-disabled"
+            data-target="calculator.getPriceButton"
+            data-action="calculator#getPrice"
+            disabled } Get Price

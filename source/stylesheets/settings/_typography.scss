@@ -3,6 +3,27 @@
 //\*----------------------------------*/
 //
 
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  // sass-lint:disable indentation
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url-for('fonts/lato-v16-latin-regular.woff2') format('woff2'),
+       url-for('fonts/lato-v16-latin-regular.woff') format('woff');
+  // sass-lint:enable indentation
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  // sass-lint:disable indentation
+  src: local('Josefin Sans SemiBold'), local('JosefinSans-SemiBold'),
+       url-for('fonts/josefin-sans-v14-latin-600.woff2') format('woff2'),
+       url-for('fonts/josefin-sans-v14-latin-600.woff') format('woff');
+  // sass-lint:enable indentation
+}
 $font-family--body: Lato, 'Open Sans', Roboto, sans-serif;
 $font-family--heading: 'Josefin Sans', Oswald, 'Roboto Condensed', sans-serif;
 

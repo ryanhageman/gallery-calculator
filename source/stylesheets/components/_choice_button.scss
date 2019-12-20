@@ -1,0 +1,33 @@
+.c-choice-button {
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $global-spacing-unit-small;
+  }
+
+  &__dropdown {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $global-spacing-unit;
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + label {
+      background-color: $color-brand-primary--300;
+      color: $color-brand-primary--700;
+    }
+  }
+
+  &__label {
+    &--dropdown {
+      margin-bottom: $global-spacing-unit-small;
+    }
+  }
+}
