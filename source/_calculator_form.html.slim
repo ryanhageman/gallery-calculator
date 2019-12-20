@@ -21,7 +21,7 @@ form.c-calculator-form
   .c-choice-button__group
     .c-choice-button
       input { type="radio"
-              name="artwork-type"
+              name="category"
               value="original"
               id="original"
               class="c-choice-button__input"
@@ -32,7 +32,7 @@ form.c-calculator-form
 
     .c-choice-button
       input { type="radio"
-              name="artwork-type"
+              name="category"
               value="print"
               id="print"
               class="c-choice-button__input"
@@ -47,7 +47,9 @@ form.c-calculator-form
               name="artwork-medium"
               value="original--paper"
               id="original--paper"
-              class="c-choice-button__input" }
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--paper" } Paper
 
     .c-choice-button
@@ -55,7 +57,9 @@ form.c-calculator-form
               name="artwork-medium"
               value="original--canvas"
               id="original--canvas"
-              class="c-choice-button__input" }
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--canvas" } Canvas
 
     .c-choice-button
@@ -63,7 +67,9 @@ form.c-calculator-form
               name="artwork-medium"
               value="original--jackson-square"
               id="original--jackson-square"
-              class="c-choice-button__input" }
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--jackson-square" } J. Square
 
   div { class="c-choice-button__dropdown is-hidden"
@@ -73,7 +79,9 @@ form.c-calculator-form
               name="artwork-medium"
               value="print--paper"
               id="print--paper"
-              class="c-choice-button__input" }
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--paper" } Paper
 
     .c-choice-button
@@ -81,7 +89,9 @@ form.c-calculator-form
               name="artwork-medium"
               value="print--canvas"
               id="print--canvas"
-              class="c-choice-button__input" }
+              class="c-choice-button__input"
+              data-target="calculator.artworkMediumButton"
+              data-action="calculator#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--canvas" } Canvas
 
   button.c-button.c-button--submit Get Price
