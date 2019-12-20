@@ -7,7 +7,7 @@ form.c-calculator-form
             pattern="[0-9]*"
             class="c-calculator-form__input"
             data-target="calculator.length"
-            data-action="keyup->calculator#updateCardSize" }
+            data-action="keyup->calculator#answerCardSizeHeading" }
 
   .c-calculator-form__field
     label.c-calculator-form__heading> Width
@@ -16,7 +16,7 @@ form.c-calculator-form
             pattern="[0-9]*"
             class="c-calculator-form__input"
             data-target="calculator.width"
-            data-action="keyup->calculator#updateCardSize" }
+            data-action="keyup->calculator#answerCardSizeHeading" }
 
   .c-choice-button__group
     .c-choice-button
@@ -24,7 +24,10 @@ form.c-calculator-form
               name="artwork-type"
               value="original"
               id="original"
-              class="c-choice-button__input" }
+              class="c-choice-button__input"
+              checked=true
+              data-target="calculator.categoryButton"
+              data-action="calculator#categorySelect" }
       label { class="c-button c-button--large c-choice-button__label" for="original" } Original
 
     .c-choice-button
@@ -32,10 +35,13 @@ form.c-calculator-form
               name="artwork-type"
               value="print"
               id="print"
-              class="c-choice-button__input" }
+              class="c-choice-button__input"
+              data-target="calculator.categoryButton"
+              data-action="calculator#categorySelect" }
       label { class="c-button c-button--large c-choice-button__label" for="print" } Print
 
-  .c-choice-button__dropdown
+  div { class="c-choice-button__dropdown"
+        data-target="calculator.originalsDropdown" }
     .c-choice-button
       input { type="radio"
               name="artwork-medium"
@@ -60,7 +66,8 @@ form.c-calculator-form
               class="c-choice-button__input" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--jackson-square" } J. Square
 
-  .c-choice-button__dropdown.is-hidden
+  div { class="c-choice-button__dropdown is-hidden"
+        data-target="calculator.printsDropdown" }
     .c-choice-button
       input { type="radio"
               name="artwork-medium"

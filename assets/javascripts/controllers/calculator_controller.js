@@ -2,7 +2,6 @@ import { Controller } from 'stimulus'
 
 export default class extends Controller {
   connect() {
-    console.log('🎵 Gonna get my calculator connected! 🎵')
     this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
     this.chosenTypeTarget.innerHTML = this.data.get('chosenTypeMessage')
   }
@@ -11,10 +10,13 @@ export default class extends Controller {
     'length',
     'width',
     'sizeInWords',
-    'chosenType'
+    'chosenType',
+    'categoryButton',
+    'originalsDropdown',
+    'printsDropdown'
   ]
 
-  updateCardSize() {
+  answerCardSizeHeading() {
     let message = 'Ready...'
 
     if (this.lengthTarget.value || this.widthTarget.value) {
@@ -23,5 +25,20 @@ export default class extends Controller {
 
     this.data.set('sizeMessage', message)
     this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
+  }
+
+  categorySelect() {
+    this.data.set('category', event.target.value)
+
+    switch (this.data.get('category')) {
+      case 'original':
+        this.originalsDropdownTarget.classList.remove('is-hidden')
+        this.printsDropdownTarget.classList.add('is-hidden')
+        break
+      case 'print':
+        this.printsDropdownTarget.classList.remove('is-hidden')
+        this.originalsDropdownTarget.classList.add('is-hidden')
+        break
+    }
   }
 }
