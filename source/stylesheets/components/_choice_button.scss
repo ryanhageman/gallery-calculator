@@ -11,6 +11,15 @@
     flex-direction: column;
     margin-bottom: $global-spacing-unit;
 
+    &--horizontal {
+      flex-direction: row;
+      justify-content: space-around;
+
+      .c-button {
+        max-width: 28vw;
+      }
+    }
+
     &.is-hidden {
       display: none;
     }

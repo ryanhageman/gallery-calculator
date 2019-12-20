@@ -1,0 +1,124 @@
+div { class="o-layout"
+      data-controller="table"
+      data-table-category="original"
+      data-table-artwork-medium="" }
+  = image_tag 'gallery-logo.png', class: 'c-logo'
+
+  .c-navigation
+    = link_to 'Calculator', '/', class: 'c-button'
+    = link_to 'Tables', '/tables.html', class: 'c-button is-active'
+
+  h1.o-layout__heading Prices for <br> Standard Sizes
+
+
+  .c-choice-button__group
+    .c-choice-button
+      input { type="radio"
+              name="category"
+              value="original"
+              id="original"
+              class="c-choice-button__input"
+              checked=true
+              data-target="table.categoryButton"
+              data-action="table#categorySelect" }
+      label { class="c-button c-button--large c-choice-button__label" for="original" } Original
+
+    .c-choice-button
+      input { type="radio"
+              name="category"
+              value="print"
+              id="print"
+              class="c-choice-button__input"
+              data-target="table.categoryButton"
+              data-action="table#categorySelect" }
+      label { class="c-button c-button--large c-choice-button__label" for="print" } Print
+
+  div { class="c-choice-button__dropdown c-choice-button__dropdown--horizontal"
+        data-target="table.originalsDropdown" }
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--paper"
+              id="original--paper"
+              class="c-choice-button__input"
+              data-target="table.artworkMediumButton"
+              data-action="table#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--paper" } Paper
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--canvas"
+              id="original--canvas"
+              class="c-choice-button__input"
+              data-target="table.artworkMediumButton"
+              data-action="table#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--canvas" } Canvas
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="original--jackson-square"
+              id="original--jackson-square"
+              class="c-choice-button__input"
+              data-target="table.artworkMediumButton"
+              data-action="table#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--jackson-square" } J. Square
+
+  div { class="c-choice-button__dropdown c-choice-button__dropdown--horizontal is-hidden"
+        data-target="table.printsDropdown" }
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="print--paper"
+              id="print--paper"
+              class="c-choice-button__input"
+              data-target="table.artworkMediumButton"
+              data-action="table#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--paper" } Paper
+
+    .c-choice-button
+      input { type="radio"
+              name="artwork-medium"
+              value="print--canvas"
+              id="print--canvas"
+              class="c-choice-button__input"
+              data-target="table.artworkMediumButton"
+              data-action="table#artworkMediumSelect" }
+      label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--canvas" } Canvas
+
+
+  .c-price-table
+    .c-price-table__title Standard Sizes
+
+    .c-price-table__table-title Prints
+
+    table.c-price-table__table
+      tr
+        th.c-price-table__heading Length
+        th.c-price-table__heading Width
+        th.c-price-table__heading Paper Print
+        th.c-price-table__heading Canvas Print
+      - data.sizes.each do |size|
+        tr
+          td.c-price-table__data = size[0]
+          td.c-price-table__data = size[1]
+          td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.paper)}
+          td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.canvas)}
+
+    .c-price-table__space-between-tables
+
+    .c-price-table__table-title  Originals - Canvas
+
+    table.c-price-table__table
+      tr
+        th.c-price-table__heading Length
+        th.c-price-table__heading Width
+        th.c-price-table__heading J. Square
+        th.c-price-table__heading Canvas
+      - data.sizes.each do |size|
+        tr
+          td.c-price-table__data = size[0]
+          td.c-price-table__data = size[1]
+          td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.jackson_square)}
+          td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.canvas)}
