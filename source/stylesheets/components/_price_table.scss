@@ -24,13 +24,24 @@
     grid-template-areas:
       'heading dropdown-arrow'
       'table table';
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 3fr 1fr;
     margin-bottom: $global-spacing-unit;
 
     &.is-open {
       .c-price-table__heading,
       .c-price-table__dropdown-arrow-wrapper {
         background-color: $color-success--300;
+      }
+
+      .c-price-table {
+        display: table;
+      }
+    }
+
+    &.is-closed {
+      .c-price-table__heading,
+      .c-price-table__dropdown-arrow-wrapper {
+        background-color: $color-white;
       }
 
       .c-price-table {
