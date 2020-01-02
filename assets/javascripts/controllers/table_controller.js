@@ -5,7 +5,7 @@ export default class extends Controller {
     'categoryButton',
     'originalsDropdown',
     'printsDropdown',
-    'artworkMediumButton',
+    'artworkMediumButton'
   ]
   connect() {
 
@@ -29,5 +29,4 @@ export default class extends Controller {
   artworkMediumSelect() {
     this.data.set('artworkMedium', event.target.value)
   }
-
 }
