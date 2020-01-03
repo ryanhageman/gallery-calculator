@@ -5,13 +5,13 @@ export default class extends Controller {
 
   root() {
     event.preventDefault()
-    document.location.href = './'
+    top.location.href = './'
     return false
   }
 
   tables() {
     event.preventDefault()
-    document.location.href = 'tables.html'
+    top.location.href = 'tables.html'
     return false
   }
 }
