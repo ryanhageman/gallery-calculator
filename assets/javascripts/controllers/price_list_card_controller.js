@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = ['card', 'heading', 'dropdownArrow']
+  static targets = ['card', 'heading']
 
   toggleDropdownTable() {
     this._toggleVisibility()
@@ -13,20 +13,20 @@ export default class extends Controller {
     this._hidePriceList()
   }
 
-  get visibility() {
-    return this.data.get('visibility')
-  }
-
-  set visibility(value) {
-    this.data.set('visibility', value)
-  }
-
   get title() {
     return this.data.get('title')
   }
 
   get artworkMedium() {
     return this.data.get('artworkMedium')
+  }
+
+  get visibility() {
+    return this.data.get('visibility')
+  }
+
+  set visibility(value) {
+    this.data.set('visibility', value)
   }
 
   _isVisible() {
@@ -38,17 +38,11 @@ export default class extends Controller {
   }
 
   _showPriceList() {
-    this.dropdownArrowTarget.classList.add('is-open')
-    this.dropdownArrowTarget.classList.remove('is-closed')
     this.cardTarget.classList.add('is-open')
-    this.cardTarget.classList.remove('is-closed')
     this.headingTarget.innerHTML = this.artworkMedium
   }
 
   _hidePriceList() {
-    this.dropdownArrowTarget.classList.add('is-closed')
-    this.dropdownArrowTarget.classList.remove('is-open')
-    this.cardTarget.classList.add('is-closed')
     this.cardTarget.classList.remove('is-open')
     this.headingTarget.innerHTML = this.title
   }

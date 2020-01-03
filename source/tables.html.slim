@@ -1,7 +1,7 @@
 div { class="o-layout"
-      data-controller="table"
-      data-table-category="original"
-      data-table-artwork-medium="" }
+      data-controller="category-button"
+      data-category-button-category="original"
+      data-category-button-artwork-medium="" }
   = image_tag 'gallery-logo.png', class: 'c-logo'
 
   .c-navigation
@@ -19,8 +19,8 @@ div { class="o-layout"
               id="original"
               class="c-choice-button__input"
               checked=true
-              data-target="table.categoryButton"
-              data-action="table#categorySelect" }
+              data-target="category-button.categoryButton"
+              data-action="category-button#categorySelect" }
       label { class="c-button c-button--large c-choice-button__label" for="original" } Original
 
     .c-choice-button
@@ -29,20 +29,20 @@ div { class="o-layout"
               value="print"
               id="print"
               class="c-choice-button__input"
-              data-target="table.categoryButton"
-              data-action="table#categorySelect" }
+              data-target="category-button.categoryButton"
+              data-action="category-button#categorySelect" }
       label { class="c-button c-button--large c-choice-button__label" for="print" } Print
 
   div { class="c-choice-button__dropdown c-choice-button__dropdown--horizontal"
-        data-target="table.originalsDropdown" }
+        data-target="category-button.originalsDropdown" }
     .c-choice-button
       input { type="radio"
               name="artwork-medium"
               value="original--paper"
               id="original--paper"
               class="c-choice-button__input"
-              data-target="table.artworkMediumButton"
-              data-action="table#artworkMediumSelect" }
+              data-target="category-button.artworkMediumButton"
+              data-action="category-button#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--paper" } Paper
 
     .c-choice-button
@@ -51,8 +51,8 @@ div { class="o-layout"
               value="original--canvas"
               id="original--canvas"
               class="c-choice-button__input"
-              data-target="table.artworkMediumButton"
-              data-action="table#artworkMediumSelect" }
+              data-target="category-button.artworkMediumButton"
+              data-action="category-button#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--canvas" } Canvas
 
     .c-choice-button
@@ -61,20 +61,20 @@ div { class="o-layout"
               value="original--jackson-square"
               id="original--jackson-square"
               class="c-choice-button__input"
-              data-target="table.artworkMediumButton"
-              data-action="table#artworkMediumSelect" }
+              data-target="category-button.artworkMediumButton"
+              data-action="category-button#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="original--jackson-square" } J. Square
 
   div { class="c-choice-button__dropdown c-choice-button__dropdown--horizontal is-hidden"
-        data-target="table.printsDropdown" }
+        data-target="category-button.printsDropdown" }
     .c-choice-button
       input { type="radio"
               name="artwork-medium"
               value="print--paper"
               id="print--paper"
               class="c-choice-button__input"
-              data-target="table.artworkMediumButton"
-              data-action="table#artworkMediumSelect" }
+              data-target="category-button.artworkMediumButton"
+              data-action="category-button#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--paper" } Paper
 
     .c-choice-button
@@ -83,23 +83,23 @@ div { class="o-layout"
               value="print--canvas"
               id="print--canvas"
               class="c-choice-button__input"
-              data-target="table.artworkMediumButton"
-              data-action="table#artworkMediumSelect" }
+              data-target="category-button.artworkMediumButton"
+              data-action="category-button#artworkMediumSelect" }
       label { class="c-button c-choice-button__label c-choice-button__label--dropdown" for="print--canvas" } Canvas
 
 
 
-  div { class="c-price-table__card is-open"
+  div { class="c-price-table__card is-closed"
         data-controller="price-list-card"
-        data-price-list-card-visibility="open"
+        data-price-list-card-visibility="closed"
         data-price-list-card-title="8 x"
         data-price-list-card-artwork-medium="Paper Original"
         data-target="price-list-card.card" }
+
     h2 {  class="c-price-table__heading"
           data-target="price-list-card.heading" } 8 x
     div.c-price-table__dropdown-arrow-wrapper
-      i { class="c-price-table__dropdown-arrow is-open"
-          data-target="price-list-card.dropdownArrow"
+      i { class="c-price-table__dropdown-arrow"
           data-action="click->price-list-card#toggleDropdownTable" }
 
     table.c-price-table
@@ -129,8 +129,7 @@ div { class="o-layout"
     h2 {  class="c-price-table__heading"
           data-target="price-list-card.heading" } 9 x
     div.c-price-table__dropdown-arrow-wrapper
-      i { class="c-price-table__dropdown-arrow is-closed"
-          data-target="price-list-card.dropdownArrow"
+      i { class="c-price-table__dropdown-arrow"
           data-action="click->price-list-card#toggleDropdownTable" }
 
     table.c-price-table
@@ -147,8 +146,7 @@ div { class="o-layout"
     h2 {  class="c-price-table__heading"
           data-target="price-list-card.heading" } 10 x
     div.c-price-table__dropdown-arrow-wrapper
-      i { class="c-price-table__dropdown-arrow is-closed"
-          data-target="price-list-card.dropdownArrow"
+      i { class="c-price-table__dropdown-arrow"
           data-action="click->price-list-card#toggleDropdownTable" }
 
     table.c-price-table

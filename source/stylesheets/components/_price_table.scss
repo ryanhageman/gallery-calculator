@@ -33,15 +33,8 @@
         background-color: $color-success--300;
       }
 
-      .c-price-table {
-        display: table;
-      }
-    }
-
-    &.is-closed {
-      .c-price-table__heading,
-      .c-price-table__dropdown-arrow-wrapper {
-        background-color: $color-white;
+      .c-price-table__dropdown-arrow {
+        transform: rotate(-135deg) translate(10px, -25px);
       }
 
       .c-price-table {
@@ -51,6 +44,7 @@
   }
 
   &__heading {
+    background-color: $color-white;
     color: $color-text--secondary;
     font: {
       family: $font-family--body;
@@ -61,6 +55,7 @@
   }
 
   &__dropdown-arrow-wrapper {
+    background-color: $color-white;
     text-align: right;
   }
 
@@ -70,14 +65,7 @@
     display: inline-block;
     grid-area: dropdown-arrow;
     padding: 4px;
-
-    &.is-closed {
-      transform: rotate(45deg) translate(-10px, 20px);
-    }
-
-    &.is-open {
-      transform: rotate(-135deg) translate(10px, -25px);
-    }
+    transform: rotate(45deg) translate(-10px, 20px);
   }
 
   &__size {
