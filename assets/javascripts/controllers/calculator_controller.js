@@ -1,10 +1,6 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  connect() {
-    this._resetPriceCard()
-  }
-
   static targets = [
     'length',
     'width',
@@ -17,6 +13,10 @@ export default class extends Controller {
     'originalsDropdown',
     'printsDropdown'
   ]
+
+  connect() {
+    this._resetPriceCard()
+  }
 
   answerCardSizeHeading() {
     let message = 'Ready...'
@@ -191,7 +191,11 @@ export default class extends Controller {
   }
 
   _activateGetPriceButton() {
-    if (this.lengthTarget.value && this.widthTarget.value && this.data.get('artworkMedium')) {
+    if (
+      this.lengthTarget.value &&
+      this.widthTarget.value &&
+      this.data.get('artworkMedium')
+    ) {
       this.getPriceButtonTarget.classList.remove('is-disabled')
       this.getPriceButtonTarget.disabled = false
     } else {

@@ -1,4 +1,4 @@
-.c-choice-button {
+.c-category-button {
   &__group {
     display: flex;
     justify-content: space-between;
@@ -11,6 +11,15 @@
     flex-direction: column;
     margin-bottom: $global-spacing-unit;
 
+    &--horizontal {
+      flex-direction: row;
+      justify-content: space-around;
+
+      .c-button {
+        max-width: 28vw;
+      }
+    }
+
     &.is-hidden {
       display: none;
     }
@@ -20,8 +29,8 @@
     display: none;
 
     &:checked + label {
-      background-color: $color-brand-primary--300;
-      color: $color-brand-primary--700;
+      background-color: $color-success--300;
+      color: $color-success--700;
     }
   }
 

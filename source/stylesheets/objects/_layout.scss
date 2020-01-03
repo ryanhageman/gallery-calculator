@@ -5,4 +5,13 @@
   margin: auto;
   max-width: 90vw;
   width: 384px;
+
+  &__heading {
+    color: $color-text--secondary;
+    text-align: center;
+  }
+
+  &__footer {
+    margin-bottom: $global-spacing-unit-large;
+  }
 }

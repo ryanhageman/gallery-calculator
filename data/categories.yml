@@ -1,0 +1,6 @@
+---
+- [originalPaper, "Paper Original", linear]
+- [originalCanvas, "Canvas Original", square]
+- [originalJacksonSquare, "J. Square Original", square]
+- [printPaper, "Paper Print", linear]
+- [printCanvas, "Canvas Print", linear]
