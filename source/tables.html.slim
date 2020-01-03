@@ -5,8 +5,17 @@ div { class="o-layout"
   = image_tag 'gallery-logo.png', class: 'c-logo'
 
   .c-navigation
-    = link_to 'Calculator', '/index.html', class: 'c-button'
-    = link_to 'Tables', '/tables.html', class: 'c-button is-active'
+    = link_to 'Calculator',
+              '/index.html',
+              class: 'c-button',
+              data: { controller: "navigation",
+                      action: 'navigation#root' }
+
+    = link_to 'Tables',
+              '/tables.html',
+              class: 'c-button is-active',
+              data: { controller: "navigation",
+                      action: 'navigation#tables' }
 
   h1.o-layout__heading Prices for <br> Standard Sizes
 
