@@ -53,6 +53,7 @@ page '/*.txt', layout: false
 configure :build do
   set :build_dir, 'docs'
   activate :relative_assets
+  set :relative_links, true
   activate :minify_css
   activate :minify_javascript
 end
