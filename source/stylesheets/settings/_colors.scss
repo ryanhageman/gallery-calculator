@@ -1,0 +1,90 @@
+// Colors - Old
+$white: #edf2f3;
+$white--background: #cedce0;
+$green: #5bba6f;
+$green--border: #4b995b;
+$danger: #d93b4b;
+$black: #2d3142;
+$black--transparent: rgba(45, 49, 66, 0.9);
+
+$content--font-color: $black;
+$base--font-color: $white;
+
+///*----------------------------------*\
+//  #COLORS
+//\*----------------------------------*/
+//
+// Set up a color palette so we can theme the entire project from one location.
+//
+// COLORS
+// Primary Brand Colors...............Brand's primary colors.
+// Accent Colors...............Warning, danger, success
+// Text Colors...............Primary, secondary, and tertiary focus text.
+// Basic Colors...............Site specific white, red, green, etc.
+// Shadow Colors...............For element shadows.
+
+
+// Primary brand colors
+$color-brand-primary--100: hsl(189, 100%, 99%);
+$color-brand-primary--200: hsl(190, 99%, 95%);
+$color-brand-primary--300: hsl(190, 96%, 89%);
+$color-brand-primary-400: hsl(190, 86%, 81%);
+$color-brand-primary: hsl(190, 57%, 60%);
+$color-brand-primary--600: hsl(190, 45%, 50%);
+$color-brand-primary--700: hsl(190, 62%, 34%);
+$color-brand-primary--800: hsl(190, 76%, 25%);
+$color-brand-primary--900: hsl(190, 100%, 13%);
+
+
+// Accent colors for success, warning, and danger
+$color-success--100: hsl(108, 33%, 97%);
+$color-success--200: hsl(102, 41%, 89%);
+$color-success--300: hsl(102, 23%, 71%);
+$color-success-400: hsl(102, 16%, 51%);
+$color-success: hsl(102, 19%, 35%);
+$color-success--600: hsl(102, 29%, 30%);
+$color-success--700: hsl(102, 40%, 30%);
+$color-success--800: hsl(102, 81%, 17%);
+$color-success--900: hsl(102, 99%, 7%);
+
+$color-warning--100: hsl(49, 89%, 98%);
+$color-warning--200: hsl(49, 85%, 88%);
+$color-warning--300: hsl(49, 67%, 73%);
+$color-warning-400: hsl(49, 77%, 67%);
+$color-warning: hsl(49, 63%, 53%);
+$color-warning--600: hsl(49, 75%, 43%);
+$color-warning--700: hsl(49, 65%, 34%);
+$color-warning--800: hsl(49, 86%, 25%);
+$color-warning--900: hsl(49, 100%, 8%);
+
+$color-danger--100: hsl(353, 79%, 98%);
+$color-danger--200: hsl(353, 100%, 89%);
+$color-danger--300: hsl(353, 99%, 79%);
+$color-danger-400: hsl(353, 97%, 69%);
+$color-danger: hsl(353, 99%, 58%);
+$color-danger--600: hsl(353, 73%, 52%);
+$color-danger--700: hsl(353, 68%, 40%);
+$color-danger--800: hsl(353, 95%, 25%);
+$color-danger--900: hsl(353, 99%, 9%);
+
+
+// Text Colors for primary, secondary, and tertiary text
+$color-text--primary: hsl(360, 1%, 18%);
+$color-text--secondary: hsl(180, 4%, 50%);
+$color-text--tertiary: hsl(180, 8%, 77%);
+
+
+// Basic colors
+$color-white: hsl(0, 0%, 100%);
+$color-gray: hsl(360, 1%, 18%);
+$color-green: $color-success;
+$color-red: $color-danger;
+$color-yellow: $color-warning;
+
+// Shadow Colors
+$color-shadow: hsla(0, 0%, 0%, 0.5);
+$color-shadow--light: hsla(0, 0%, 45%, 0.5);
+
+// Default Colors
+$color-page-background: $color-success--100;
+$color-links: $color-brand-primary--600;

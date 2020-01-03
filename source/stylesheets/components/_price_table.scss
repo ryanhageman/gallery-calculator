@@ -1,48 +1,79 @@
 .c-price-table {
-  background-color: $white;
-  border: 1px solid $black--transparent;
-  border-radius: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 1rem;
-  padding: 1rem;
+  display: none;
+  font: {
+    size: 32px;
+  }
+  grid-area: table;
+  margin-bottom: 0;
 
-  &__title {
-    font-family: $font--heading;
-    font-size: 2.8rem;
-    font-weight: bold;
-    text-align: center;
+  tr {
+    border-bottom: 1px solid $color-gray;
+
+    &:last-child {
+      border-bottom: 0;
+    }
   }
 
-  &__table {
-    border: 1px solid $black--transparent;
-    border-collapse: collapse;
-    width: 100%;
-  }
+  &__card {
+    background: {
+      color: $color-white;
+    }
+    border-radius: $global-spacing-unit-tiny;
+    box-shadow: 0 2px 4px $color-shadow;
+    display: grid;
+    grid-template-areas:
+      'heading dropdown-arrow'
+      'table table';
+    grid-template-columns: 3fr 1fr;
+    margin-bottom: $global-spacing-unit;
 
-  &__table-title {
-    font-family: $font--heading;
-    font-size: 2.2rem;
-    margin: 1rem 0;
+    &.is-open {
+      .c-price-table__heading,
+      .c-price-table__dropdown-arrow-wrapper {
+        background-color: $color-success--300;
+      }
+
+      .c-price-table__dropdown-arrow {
+        transform: rotate(-135deg) translate(10px, -25px);
+      }
+
+      .c-price-table {
+        display: table;
+      }
+    }
   }
 
   &__heading {
-    background-color: $white--background;
-    border: 1px solid $black--transparent;
-    font-family: $font--heading;
-    font-size: 1.6rem;
-    padding: 1.2rem 0;
+    background-color: $color-white;
+    color: $color-text--secondary;
+    font: {
+      family: $font-family--body;
+    }
+    grid-area: heading;
+    margin-bottom: 0;
+    padding-left: $global-spacing-unit-small;
   }
 
-  &__data {
-    border: 1px solid $black--transparent;
-    font-family: $font--body;
-    font-size: 1.6rem;
-    padding: 1rem 0;
-    text-align: center;
+  &__dropdown-arrow-wrapper {
+    background-color: $color-white;
+    text-align: right;
   }
 
-  &__space-between-tables {
-    height: 1.5rem;
+  &__dropdown-arrow {
+    border: solid $color-gray;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    grid-area: dropdown-arrow;
+    padding: 4px;
+    transform: rotate(45deg) translate(-10px, 20px);
+  }
+
+  &__size {
+    padding-left: $global-spacing-unit-large;
+  }
+
+  &__price {
+    padding-right: $global-spacing-unit-large;
+    text-align: right;
   }
 }

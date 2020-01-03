@@ -1,0 +1,39 @@
+.c-button {
+  align-items: center;
+  border-radius: $global-spacing-unit;
+  box-shadow: 0 2px 4px $color-shadow;
+  color: $color-text--primary;
+  display: flex;
+  font-family: $font-family--body;
+  font-size: 24px;
+  height: 48px;
+  justify-content: center;
+  width: 128px;
+
+  &.is-active {
+    background-color: $color-brand-primary--300;
+    color: $color-brand-primary--700;
+  }
+
+  &--large {
+    height: 64px;
+    max-width: 42vw;
+    width: 182px;
+  }
+
+  &--submit {
+    background-color: $color-success--700;
+    color: $color-white;
+    height: 64px;
+    margin-bottom: $global-spacing-unit-large;
+    width: 100%;
+
+    &.is-disabled {
+      background-color: $color-brand-primary--100;
+      border: 1px solid $color-text--tertiary;
+      box-shadow: 0 0 0 $color-brand-primary--100;
+      color: $color-text--tertiary;
+    }
+  }
+}
+

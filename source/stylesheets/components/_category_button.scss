@@ -1,0 +1,42 @@
+.c-category-button {
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $global-spacing-unit-small;
+  }
+
+  &__dropdown {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $global-spacing-unit;
+
+    &--horizontal {
+      flex-direction: row;
+      justify-content: space-around;
+
+      .c-button {
+        max-width: 28vw;
+      }
+    }
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + label {
+      background-color: $color-success--300;
+      color: $color-success--700;
+    }
+  }
+
+  &__label {
+    &--dropdown {
+      margin-bottom: $global-spacing-unit-small;
+    }
+  }
+}

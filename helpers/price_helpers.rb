@@ -2,11 +2,21 @@
 
 # Calculate prices
 module PriceHelpers
-  def price_per_linear_inch(length, width, constant)
+  def price(scheme, length, width, category_code)
+    if scheme == 'linear'
+      return price_per_linear_inch(length, width, category_code)
+    end
+
+    price_per_square_inch(length, width, category_code)
+  end
+
+  def price_per_linear_inch(length, width, category_code)
+    constant = data.prices[category_code]
     round_price((length + width) * constant)
   end
 
-  def price_per_square_inch(length, width, constant)
+  def price_per_square_inch(length, width, category_code)
+    constant = data.prices[category_code]
     round_price((length * width) * constant)
   end
 

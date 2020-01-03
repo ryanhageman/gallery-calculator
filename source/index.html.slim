@@ -1,117 +1,21 @@
-section { class="c-calculator"
-          data-controller="calculator"
-          data-calculator-artwork-type=""
-          data-calculator-price-constant=""
-          data-calculator-print-paper=(data.prices.prints.paper)
-          data-calculator-print-canvas=(data.prices.prints.canvas)
-          data-calculator-original-js=(data.prices.originals.jackson_square)
-          data-calculator-original-canvas=(data.prices.originals.canvas) }
+.o-layout
+  = image_tag 'gallery-logo.png', class: 'c-logo'
 
-  .c-calculator__title Price Calculator
+  .c-navigation
+    = link_to 'Calculator', '/', class: 'c-button is-active'
+    = link_to 'Tables', '/tables.html', class: 'c-button'
 
-  form.c-calculator__form
-    .c-calculator__price data-target="calculator.price" $
-
-    .c-calculator__form-field
-      label.c-calculator__form-heading> Length
-      br
-      input { type="number"
-              pattern="[0-9]*"
-              class="c-calculator__form-input"
-              data-target="calculator.length" }
-
-    .c-calculator__form-field
-      label.c-calculator__form-heading> Width
-      br
-      input { type="number"
-              pattern="[0-9]*"
-              class="c-calculator__form-input"
-              data-target="calculator.width" }
-
-    fieldset.c-calculator__form-fieldset
-      legend.c-calculator__form-heading Type:
-
-      ul.c-calculator__form-ul
-        li.c-calculator__form-li
-          input { type="radio"
-                  name="artwork-type"
-                  value="print-paper"
-                  data-target="calculator.typeSelector"
-                  data-action="calculator#artworkType" }
-          label< Print: Paper
-
-        li.c-calculator__form-li
-          input { type="radio"
-                  name="artwork-type"
-                  value="print-canvas"
-                  data-target="calculator.typeSelector"
-                  data-action="calculator#artworkType" }
-          label< Print: Canvas
-
-        li.c-calculator__form-li
-          input { type="radio"
-                  name="artwork-type"
-                  value="original-js"
-                  data-target="calculator.typeSelector"
-                  data-action="calculator#artworkType" }
-          label< Original: J. Square
-
-        li.c-calculator__form-li
-          input { type="radio"
-                  name="artwork-type"
-                  value="original-canvas"
-                  data-target="calculator.typeSelector"
-                  data-action="calculator#artworkType" }
-          label< Original: Canvas
-
-    button.c-calculator__form-button data-action="calculator#price" Get Price
-
-  .c-price-card
-    .c-price-card__heading Prints
-    .c-price-card__subheading Per Linear Inch
-
-    .c-price-card__prices
-      .c-price-card__price-constant data-target="calculator.printPaper"
-      .c-price-card__price-constant data-target="calculator.printCanvas"
-
-    .c-price-card__heading Originals
-    .c-price-card__subheading Per Square Inch
-
-    .c-price-card__prices
-      .c-price-card__price-constant data-target="calculator.originalJs"
-      .c-price-card__price-constant data-target="calculator.originalCanvas"
-
-  .c-price-table
-    .c-price-table__title Standard Sizes
-
-    .c-price-table__table-title Prints
-
-    table.c-price-table__table
-      tr
-        th.c-price-table__heading Length
-        th.c-price-table__heading Width
-        th.c-price-table__heading Paper Print
-        th.c-price-table__heading Canvas Print
-      - data.sizes.each do |size|
-        tr
-          td.c-price-table__data = size[0]
-          td.c-price-table__data = size[1]
-          td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.paper)}
-          td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.canvas)}
-
-    .c-price-table__space-between-tables
-
-    .c-price-table__table-title  Originals - Canvas
-
-    table.c-price-table__table
-      tr
-        th.c-price-table__heading Length
-        th.c-price-table__heading Width
-        th.c-price-table__heading J. Square
-        th.c-price-table__heading Canvas
-      - data.sizes.each do |size|
-        tr
-          td.c-price-table__data = size[0]
-          td.c-price-table__data = size[1]
-          td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.jackson_square)}
-          td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.canvas)}
+  section { class="c-calculator"
+            data-controller="calculator"
+            data-calculator-category="original"
+            data-calculator-artwork-medium=""
+            data-calculator-size-message="Ready..."
+            data-calculator-chosen-medium-message="(◕‿◕)"
+            data-calculator-price-constant=""
+            data-calculator-print-paper=(data.prices.printPaper)
+            data-calculator-print-canvas=(data.prices.printCanvas)
+            data-calculator-original-js=(data.prices.originalJacksonSquare)
+            data-calculator-original-canvas=(data.prices.originalCanvas)
+            data-calculator-original-paper=(data.prices.originalPaper) }
+    == partial 'answer_card'
+    == partial 'calculator_form'

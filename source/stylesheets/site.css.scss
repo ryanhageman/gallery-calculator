@@ -1,9 +1,45 @@
-@import 'settings/variables';
+// ITCSS
+// 1. Settings - Variables, Colors, Typeface
+// 2. Tools - Mixins & Functions
+// 3. Generic - Normalize & Resets
+// 4. Elements - Raw HTML elements
+// 5. Objects - Layouts and general design patterns
+// 6. Components - Specific parts
+// 7. Utilities - Overrides and shame
 
-@import 'base/normalize';
+// 1. Settings
+@import 'settings/all';
 
-@import 'elements/html_selectors';
+// 2. Tools
+@import 'tools/all';
 
+// 3. Generic
+@import 'generic/box-sizing';
+@import 'generic/normalize';
+@import 'generic/reset';
+@import 'generic/shared';
+
+// 4. Elements
+@import 'elements/page';
+@import 'elements/headings';
+@import 'elements/links';
+@import 'elements/lists';
+@import 'elements/images';
+@import 'elements/quotes';
+
+// 5. Objects
+
+@import 'objects/layout';
+
+// 6. Components
+@import 'components/logo';
+@import 'components/navigation';
 @import 'components/calculator';
-@import 'components/price_card';
+@import 'components/button';
+@import 'components/answer_card';
+@import 'components/category_button';
+@import 'components/calculator_form';
 @import 'components/price_table';
+@import 'components/price_list_card';
+
+// 7. Utilities
