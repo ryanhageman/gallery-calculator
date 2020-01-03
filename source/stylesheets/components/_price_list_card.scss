@@ -1,0 +1,9 @@
+.c-price-list-card {
+  &__group {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+  }
+}
