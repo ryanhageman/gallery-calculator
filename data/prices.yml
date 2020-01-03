@@ -1,9 +1,6 @@
 ---
-prints:
-  paper: 5
-  canvas: 7
-
-originals:
-  paper: 7.15
-  canvas: 1.16
-  jackson_square: 0.385
+originalPaper: 7.15
+originalCanvas: 1.16
+originalJacksonSquare: 0.385
+printPaper: 5
+printCanvas: 7

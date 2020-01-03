@@ -10,7 +10,6 @@ div { class="o-layout"
 
   h1.o-layout__heading Prices for <br> Standard Sizes
 
-
   .c-category-button__group
     .c-category-button
       input { type="radio"
@@ -87,219 +86,31 @@ div { class="o-layout"
               data-action="category-button#artworkMediumSelect" }
       label { class="c-button c-category-button__label c-category-button__label--dropdown" for="print--canvas" } Canvas
 
+  - data.categories.each do |category|
+    - category_code, category_title, category_pricing = category
+    div { class="c-price-list-card__group"
+          data-target="category-button.#{{category_code}}" }
+      - data.sizes.each do |size_title, dimension_list|
+        div { class="c-price-table__card is-closed"
+              data-controller="price-list-card"
+              data-price-list-card-visibility="closed"
+              data-price-list-card-title="#{size_title} x"
+              data-price-list-card-artwork-medium="#{category_title}"
+              data-target="price-list-card.card" }
 
-  div { class="c-price-list-card__group"
-        data-target="category-button.originalPaper" }
-    div { class="c-price-table__card is-closed"
-          data-controller="price-list-card"
-          data-price-list-card-visibility="closed"
-          data-price-list-card-title="8 x"
-          data-price-list-card-artwork-medium="Paper Original"
-          data-target="price-list-card.card" }
+          h2 {  class="c-price-table__heading"
+                data-target="price-list-card.heading"
+                data-action="click->price-list-card#toggleDropdownTable" } #{size_title} x
+          div{  class="c-price-table__dropdown-arrow-wrapper"
+                data-action="click->price-list-card#toggleDropdownTable" }
+            i { class="c-price-table__dropdown-arrow"
+                data-action="click->price-list-card#toggleDropdownTable" }
 
-      h2 {  class="c-price-table__heading"
-            data-target="price-list-card.heading" } 8 x
-      div.c-price-table__dropdown-arrow-wrapper
-        i { class="c-price-table__dropdown-arrow"
-            data-action="click->price-list-card#toggleDropdownTable" }
+          table.c-price-table
+            - dimension_list.each do |dimensions|
+              - length, width = dimensions
+              tr
+                td.c-price-table__size #{length} x #{width}
+                td.c-price-table__price $#{price(category_pricing, length, width, category_code)}
 
-      table.c-price-table
-        tr
-          td.c-price-table__size 8 x 6
-          td.c-price-table__price $100
-        tr
-          td.c-price-table__size 8 x 8
-          td.c-price-table__price $115
-        tr
-          td.c-price-table__size 8 x 10
-          td.c-price-table__price $130
-        tr
-          td.c-price-table__size 8 x 16
-          td.c-price-table__price $170
-
-    div { class="c-price-table__card is-closed"
-          data-controller="price-list-card"
-          data-price-list-card-visibility="closed"
-          data-price-list-card-title="9 x"
-          data-price-list-card-artwork-medium="Paper Original"
-          data-target="price-list-card.card" }
-      h2 {  class="c-price-table__heading"
-            data-target="price-list-card.heading" } 9 x
-      div.c-price-table__dropdown-arrow-wrapper
-        i { class="c-price-table__dropdown-arrow"
-            data-action="click->price-list-card#toggleDropdownTable" }
-
-      table.c-price-table
-        tr
-          td.c-price-table__size 9 x 12
-          td.c-price-table__price $150
-
-    div { class="c-price-table__card is-closed"
-          data-controller="price-list-card"
-          data-price-list-card-visibility="closed"
-          data-price-list-card-title="10 x"
-          data-price-list-card-artwork-medium="Paper Original"
-          data-target="price-list-card.card" }
-      h2 {  class="c-price-table__heading"
-            data-target="price-list-card.heading" } 10 x
-      div.c-price-table__dropdown-arrow-wrapper
-        i { class="c-price-table__dropdown-arrow"
-            data-action="click->price-list-card#toggleDropdownTable" }
-
-      table.c-price-table
-        tr
-          td.c-price-table__size 10 x 10
-          td.c-price-table__price $145
-
-
-  div { class="c-price-list-card__group"
-        data-target="category-button.originalCanvas" }
-    div { class="c-price-table__card is-closed"
-          data-controller="price-list-card"
-          data-price-list-card-visibility="closed"
-          data-price-list-card-title="8 x"
-          data-price-list-card-artwork-medium="Canvas Original"
-          data-target="price-list-card.card" }
-
-      h2 {  class="c-price-table__heading"
-            data-target="price-list-card.heading" } 8 x
-      div.c-price-table__dropdown-arrow-wrapper
-        i { class="c-price-table__dropdown-arrow"
-            data-action="click->price-list-card#toggleDropdownTable" }
-
-      table.c-price-table
-        tr
-          td.c-price-table__size 8 x 6
-          td.c-price-table__price $100
-        tr
-          td.c-price-table__size 8 x 8
-          td.c-price-table__price $115
-        tr
-          td.c-price-table__size 8 x 10
-          td.c-price-table__price $130
-        tr
-          td.c-price-table__size 8 x 16
-          td.c-price-table__price $170
-
-  div { class="c-price-list-card__group"
-        data-target="category-button.originalJacksonSquare" }
-    div { class="c-price-table__card is-closed"
-          data-controller="price-list-card"
-          data-price-list-card-visibility="closed"
-          data-price-list-card-title="8 x"
-          data-price-list-card-artwork-medium="J. Square Original"
-          data-target="price-list-card.card" }
-
-      h2 {  class="c-price-table__heading"
-            data-target="price-list-card.heading" } 8 x
-      div.c-price-table__dropdown-arrow-wrapper
-        i { class="c-price-table__dropdown-arrow"
-            data-action="click->price-list-card#toggleDropdownTable" }
-
-      table.c-price-table
-        tr
-          td.c-price-table__size 8 x 6
-          td.c-price-table__price $100
-        tr
-          td.c-price-table__size 8 x 8
-          td.c-price-table__price $115
-        tr
-          td.c-price-table__size 8 x 10
-          td.c-price-table__price $130
-        tr
-          td.c-price-table__size 8 x 16
-          td.c-price-table__price $170
-
-  div { class="c-price-list-card__group"
-        data-target="category-button.printPaper" }
-    div { class="c-price-table__card is-closed"
-          data-controller="price-list-card"
-          data-price-list-card-visibility="closed"
-          data-price-list-card-title="8 x"
-          data-price-list-card-artwork-medium="Paper Print"
-          data-target="price-list-card.card" }
-
-      h2 {  class="c-price-table__heading"
-            data-target="price-list-card.heading" } 8 x
-      div.c-price-table__dropdown-arrow-wrapper
-        i { class="c-price-table__dropdown-arrow"
-            data-action="click->price-list-card#toggleDropdownTable" }
-
-      table.c-price-table
-        tr
-          td.c-price-table__size 8 x 6
-          td.c-price-table__price $100
-        tr
-          td.c-price-table__size 8 x 8
-          td.c-price-table__price $115
-        tr
-          td.c-price-table__size 8 x 10
-          td.c-price-table__price $130
-        tr
-          td.c-price-table__size 8 x 16
-          td.c-price-table__price $170
-
-  div { class="c-price-list-card__group"
-        data-target="category-button.printCanvas" }
-    div { class="c-price-table__card is-closed"
-          data-controller="price-list-card"
-          data-price-list-card-visibility="closed"
-          data-price-list-card-title="8 x"
-          data-price-list-card-artwork-medium="Canvas Print"
-          data-target="price-list-card.card" }
-
-      h2 {  class="c-price-table__heading"
-            data-target="price-list-card.heading" } 8 x
-      div.c-price-table__dropdown-arrow-wrapper
-        i { class="c-price-table__dropdown-arrow"
-            data-action="click->price-list-card#toggleDropdownTable" }
-
-      table.c-price-table
-        tr
-          td.c-price-table__size 8 x 6
-          td.c-price-table__price $100
-        tr
-          td.c-price-table__size 8 x 8
-          td.c-price-table__price $115
-        tr
-          td.c-price-table__size 8 x 10
-          td.c-price-table__price $130
-        tr
-          td.c-price-table__size 8 x 16
-          td.c-price-table__price $170
-
-
-  / .c-price-table
-  /   .c-price-table__title Standard Sizes
-
-  /   .c-price-table__table-title Prints
-
-  /   table.c-price-table__table
-  /     tr
-  /       th.c-price-table__heading Length
-  /       th.c-price-table__heading Width
-  /       th.c-price-table__heading Paper Print
-  /       th.c-price-table__heading Canvas Print
-  /     - data.sizes.each do |size|
-  /       tr
-  /         td.c-price-table__data = size[0]
-  /         td.c-price-table__data = size[1]
-  /         td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.paper)}
-  /         td.c-price-table__data $#{price_per_linear_inch(size[0], size[1], data.prices.prints.canvas)}
-
-  /   .c-price-table__space-between-tables
-
-  /   .c-price-table__table-title  Originals - Canvas
-
-  /   table.c-price-table__table
-  /     tr
-  /       th.c-price-table__heading Length
-  /       th.c-price-table__heading Width
-  /       th.c-price-table__heading J. Square
-  /       th.c-price-table__heading Canvas
-  /     - data.sizes.each do |size|
-  /       tr
-  /         td.c-price-table__data = size[0]
-  /         td.c-price-table__data = size[1]
-  /         td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.jackson_square)}
-  /         td.c-price-table__data $#{price_per_square_inch(size[0], size[1], data.prices.originals.canvas)}
+  .o-layout__footer

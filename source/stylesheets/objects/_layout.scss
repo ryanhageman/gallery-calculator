@@ -10,4 +10,8 @@
     color: $color-text--secondary;
     text-align: center;
   }
+
+  &__footer {
+    margin-bottom: $global-spacing-unit-large;
+  }
 }
