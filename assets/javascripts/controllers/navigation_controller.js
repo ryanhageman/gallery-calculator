@@ -6,10 +6,12 @@ export default class extends Controller {
   root() {
     event.preventDefault()
     document.location.href = './'
+    return false
   }
 
   tables() {
     event.preventDefault()
     document.location.href = 'tables.html'
+    return false
   }
 }
