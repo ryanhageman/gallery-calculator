@@ -2,42 +2,51 @@
 
 # Calculate prices
 module PriceHelpers
-  def price(scheme, length, width, category_code)
+  def price(scheme, length, width, price_constant)
     if scheme == 'linear'
-      return price_per_linear_inch(length, width, category_code)
+      return price_per_linear_inch(length, width, price_constant)
     end
 
-    price_per_square_inch(length, width, category_code)
+    price_per_square_inch(length, width, price_constant)
   end
 
-  def price_per_linear_inch(length, width, category_code)
-    constant = data.prices[category_code]
-    round_price((length + width) * constant)
+  def price_per_linear_inch(length, width, price_constant)
+    initial_price = (length + width) * price_constant
+    rounded_price(initial_price, ROUND_TO_FIVE)
   end
 
-  def price_per_square_inch(length, width, category_code)
-    constant = data.prices[category_code]
-    round_price((length * width) * constant)
+  def price_per_square_inch(length, width, price_constant)
+    initial_price = (length * width) * price_constant
+    rounded_price(initial_price, ROUND_TO_FIVE)
   end
 
   private
 
-  def round_price(price)
-    new_last_digit = last_digit_rounded(price)
-    rounded_price = price.round.to_s.chars.slice(0...-1).push(new_last_digit).join
+  def rounded_price(price, rounding_scheme)
+    new_last_digit = rounded_last_digit(price, rounding_scheme)
+    new_price = price.round.to_s.chars.slice(0...-1).push(new_last_digit).join
 
-    rounded_price = ((rounded_price.to_f / 10).round * 10).to_s if new_last_digit == '9'
-
-    rounded_price
+    new_last_digit == '9' ? rounded_up(new_price) : new_price
   end
 
-  def last_digit_rounded(number)
-    last_digit = number.round.to_s[-1]
+  def rounded_last_digit(number, rounding_scheme)
+    rounding_scheme[number.round.to_s[-1]]
+  end
 
-    case last_digit
-    when '0', '1', '2' then '0'
-    when '3', '4', '5', '6', '7' then '5'
-    when '8', '9' then '9'
-    end
+  def rounded_up(price)
+    ((price.to_f / 10).round * 10).to_s
   end
 end
+
+ROUND_TO_FIVE = {
+  '0' => '0',
+  '1' => '0',
+  '2' => '0',
+  '3' => '5',
+  '4' => '5',
+  '5' => '5',
+  '6' => '5',
+  '7' => '5',
+  '8' => '9',
+  '9' => '9'
+}.freeze
