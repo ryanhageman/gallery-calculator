@@ -10,7 +10,7 @@ gem 'wdm', '~> 0.1', platforms: %i[mswin mingw x64_mingw]
 gem 'middleman-livereload', '~> 3.4.3'
 gem 'slim'
 
-group :development do
+group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rspec', '~> 3.9'
