@@ -6,3 +6,6 @@ build/
 
 node_modules
 source/javascripts/index.js
+yarn-error.log
+
+spec/examples.txt
