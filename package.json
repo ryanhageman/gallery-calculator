@@ -6,8 +6,10 @@
   "author": "Ryan Hageman <improv42@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --watch -d --color",
-    "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --bail -p"
+    "develop": "NODE_ENV=development ./node_modules/webpack/bin/webpack.js --watch -d --color",
+    "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --bail -p",
+    "cypress:open": "cypress open",
+    "test": "npm-run-all --parallel develop cypress:open"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -18,6 +20,7 @@
     "cypress": "^4.12.1",
     "eslint": "^7.4.0",
     "eslint-plugin-cypress": "^2.11.1",
+    "npm-run-all": "^4.1.5",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   },
