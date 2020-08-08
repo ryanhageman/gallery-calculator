@@ -11,3 +11,4 @@ yarn-error.log
 spec/examples.txt
 
 cypress/screenshots
+cypress/videos
