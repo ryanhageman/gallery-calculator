@@ -97,7 +97,7 @@ export default class extends Controller {
   }
 
   _price() {
-    return new Calculator(this._pricingMethod()).roundedPrice(
+    return new Calculator.for(this._pricingMethod()).roundedPrice(
       Number(this.lengthTarget.value),
       Number(this.widthTarget.value),
       Number(this.data.get('priceConstant')),
