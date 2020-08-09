@@ -20,7 +20,7 @@ export default class extends Controller {
     this._resetPriceCard()
   }
 
-  answerCardSizeHeading() {
+  showSizeOnAnswerCard() {
     let message = 'Ready...'
 
     if (this.lengthTarget.value || this.widthTarget.value) {
