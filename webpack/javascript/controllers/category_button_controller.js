@@ -5,7 +5,7 @@ export default class extends Controller {
     'categoryButton',
     'originalsDropdown',
     'printsDropdown',
-    'artworkMediumButton',
+    'artMediumButton',
     'originalPaper',
     'originalCanvas',
     'originalJacksonSquare',

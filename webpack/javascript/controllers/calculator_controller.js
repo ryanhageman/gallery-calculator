@@ -10,7 +10,7 @@ export default class extends Controller {
     'sizeInWords',
     'artMediumHeading',
     'categoryButton',
-    'artworkMediumButton',
+    'artMediumButton',
     'getPriceButton',
     'originalsDropdown',
     'printsDropdown',
