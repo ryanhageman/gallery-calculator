@@ -35,7 +35,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-constant', '6.94')
-        .attr('data-calculator-artwork-medium', 'linear-inch')
+        .attr('data-calculator-art-medium', 'linear-inch')
     })
     cy.findByTestId('get-price-button').click()
     cy.findByTestId('price').contains(/500/)
@@ -49,7 +49,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-constant', '1.16')
-        .attr('data-calculator-artwork-medium', 'square-inch')
+        .attr('data-calculator-art-medium', 'square-inch')
     })
     cy.findByTestId('get-price-button').click()
     cy.findByTestId('price').contains(/1505/)

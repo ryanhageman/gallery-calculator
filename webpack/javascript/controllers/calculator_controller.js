@@ -51,7 +51,7 @@ export default class extends Controller {
   }
 
   chooseArtMedium() {
-    this.data.set('artworkMedium', event.target.value)
+    this.data.set('artMedium', event.target.value)
     this.data.set('priceConstant', this._setPriceConstant())
     this._updateArtMediumHeading()
     this._clearPrice()
@@ -76,7 +76,7 @@ export default class extends Controller {
       'print--canvas': 'Canvas Print',
     }
 
-    let message = ART_MEDIUM_HEADING[this.data.get('artworkMedium')] || '(◕‿◕)'
+    let message = ART_MEDIUM_HEADING[this.data.get('artMedium')] || '(◕‿◕)'
 
     this.data.set('chosenMediumMessage', message)
     this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
@@ -93,7 +93,7 @@ export default class extends Controller {
       'square-inch': 'perSquareInch',
     }
 
-    return PRICING_METHOD[this.data.get('artworkMedium')]
+    return PRICING_METHOD[this.data.get('artMedium')]
   }
 
   _price() {
@@ -113,7 +113,7 @@ export default class extends Controller {
       'print--paper': this.data.get('printPaper'),
       'print--canvas': this.data.get('printCanvas'),
     }
-    return PRICE_PER[this.data.get('artworkMedium')] || 0
+    return PRICE_PER[this.data.get('artMedium')] || 0
   }
 
   _resetPriceCard() {
@@ -126,7 +126,7 @@ export default class extends Controller {
     if (
       this.lengthTarget.value &&
       this.widthTarget.value &&
-      this.data.get('artworkMedium')
+      this.data.get('artMedium')
     ) {
       this.getPriceButtonTarget.classList.remove('is-disabled')
       this.getPriceButtonTarget.disabled = false

@@ -17,8 +17,8 @@ export default class extends Controller {
     return this.data.get('title')
   }
 
-  get artworkMedium() {
-    return this.data.get('artworkMedium')
+  get artMedium() {
+    return this.data.get('artMedium')
   }
 
   get visibility() {
@@ -39,7 +39,7 @@ export default class extends Controller {
 
   _showPriceList() {
     this.cardTarget.classList.add('is-open')
-    this.headingTarget.innerHTML = this.artworkMedium
+    this.headingTarget.innerHTML = this.artMedium
   }
 
   _hidePriceList() {

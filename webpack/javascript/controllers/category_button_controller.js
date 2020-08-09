@@ -29,10 +29,10 @@ export default class extends Controller {
   }
 
   chooseArtMedium() {
-    this.artworkMedium = event.target.value
+    this.artMedium = event.target.value
     this._closeAllPriceListGroups()
 
-    switch (this.artworkMedium) {
+    switch (this.artMedium) {
       case 'original--paper':
         this.originalPaperTarget.classList.add('is-open')
         break
@@ -53,12 +53,12 @@ export default class extends Controller {
     }
   }
 
-  get artworkMedium() {
-    return this.data.get('artworkMedium')
+  get artMedium() {
+    return this.data.get('artMedium')
   }
 
-  set artworkMedium(value) {
-    this.data.set('artworkMedium', value)
+  set artMedium(value) {
+    this.data.set('artMedium', value)
   }
 
   _closeAllPriceListGroups() {
