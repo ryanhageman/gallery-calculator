@@ -63,11 +63,7 @@ export default class extends Controller {
     this.priceTarget.innerHTML = `$${this._price()}`
   }
 
-  _clearPrice() {
-    this.priceTarget.innerHTML = '$ -'
-  }
-
-  _updateArtMediumHeading() {
+  _artMediumHeading() {
     const ART_MEDIUM_HEADING = {
       'original--paper': 'Paper Original',
       'original--canvas': 'Canvas Original',
@@ -76,10 +72,7 @@ export default class extends Controller {
       'print--canvas': 'Canvas Print',
     }
 
-    let message = ART_MEDIUM_HEADING[this.data.get('artMedium')] || '(◕‿◕)'
-
-    this.data.set('chosenMediumMessage', message)
-    this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
+    return ART_MEDIUM_HEADING[this.data.get('artMedium')] || '(◕‿◕)'
   }
 
   _pricingMethod() {
@@ -96,6 +89,18 @@ export default class extends Controller {
     return PRICING_METHOD[this.data.get('artMedium')]
   }
 
+  _artMediumPricePer() {
+    const PRICE_PER = {
+      'original--paper': this.data.get('originalPaper'),
+      'original--canvas': this.data.get('originalCanvas'),
+      'original--jackson-square': this.data.get('originalJs'),
+      'print--paper': this.data.get('printPaper'),
+      'print--canvas': this.data.get('printCanvas'),
+    }
+
+    return PRICE_PER[this.data.get('artMedium')] || 0
+  }
+
   _price() {
     return new Calculator.for(this._pricingMethod()).roundedPrice(
       Number(this.lengthTarget.value),
@@ -105,15 +110,13 @@ export default class extends Controller {
     )
   }
 
-  _artMediumPricePer() {
-    const PRICE_PER = {
-      'original--paper': this.data.get('originalPaper'),
-      'original--canvas': this.data.get('originalCanvas'),
-      'original--jackson-square': this.data.get('originalJs'),
-      'print--paper': this.data.get('printPaper'),
-      'print--canvas': this.data.get('printCanvas'),
-    }
-    return PRICE_PER[this.data.get('artMedium')] || 0
+  _clearPrice() {
+    this.priceTarget.innerHTML = '$ -'
+  }
+
+  _updateArtMediumHeading() {
+    this.data.set('chosenMediumMessage', this._artMediumHeading())
+    this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
   }
 
   _resetAnswerCard() {
