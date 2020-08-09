@@ -35,7 +35,7 @@ export default class extends Controller {
     this._activateGetPriceButton()
   }
 
-  categorySelect() {
+  toggleCategoryDropdown() {
     this.data.set('category', event.target.value)
 
     switch (this.data.get('category')) {

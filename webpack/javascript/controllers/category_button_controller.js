@@ -10,10 +10,10 @@ export default class extends Controller {
     'originalCanvas',
     'originalJacksonSquare',
     'printPaper',
-    'printCanvas'
+    'printCanvas',
   ]
 
-  categorySelect() {
+  toggleCategoryDropdown() {
     this.data.set('category', event.target.value)
 
     switch (this.data.get('category')) {
