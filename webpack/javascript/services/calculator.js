@@ -1,18 +1,25 @@
 export default class Calculator {
-  constructor(length, width, pricePer, pricingMethod) {
-    this.length = length
-    this.width = width
-    this.pricePer = pricePer
+  constructor(pricingMethod) {
     this.pricingMethod = pricingMethod
   }
 
-  getPrice() {
+  price(length, width, pricePer) {
+    this.length = length
+    this.width = width
+    this.pricePer = pricePer
+
     const CALCULATE = {
       perSquareInch: this._perSquareInch(),
       perLinearInch: this._perLinearInch(),
     }
 
     return CALCULATE[this.pricingMethod]
+  }
+
+  roundedPrice(length, width, pricePer, roundingScheme) {
+    let price = this.price(length, width, pricePer)
+
+    return new roundingScheme().round(price)
   }
 
   _perSquareInch() {
