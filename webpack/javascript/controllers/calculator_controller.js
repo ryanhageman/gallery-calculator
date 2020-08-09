@@ -17,7 +17,7 @@ export default class extends Controller {
   ]
 
   connect() {
-    this._resetPriceCard()
+    this._resetAnswerCard()
   }
 
   showSizeOnAnswerCard() {
@@ -116,7 +116,7 @@ export default class extends Controller {
     return PRICE_PER[this.data.get('artMedium')] || 0
   }
 
-  _resetPriceCard() {
+  _resetAnswerCard() {
     this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
     this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
     this._clearPrice()
