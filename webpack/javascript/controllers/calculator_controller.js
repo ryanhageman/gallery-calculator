@@ -100,14 +100,12 @@ export default class extends Controller {
   }
 
   _price() {
-    const price = new Calculator(
+    return new Calculator(this._pricingMethod()).roundedPrice(
       Number(this.lengthTarget.value),
       Number(this.widthTarget.value),
       Number(this.data.get('priceConstant')),
-      this._pricingMethod()
-    ).getPrice()
-
-    return new RoundToFive(price).round()
+      RoundToFive
+    )
   }
 
   _setPriceConstant() {
