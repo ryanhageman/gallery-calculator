@@ -1,9 +1,22 @@
 export default class RoundToFive {
-  constructor(number) {
-    this.number = number
+  constructor() {
+    this.roundingTable = {
+      '0': '0',
+      '1': '0',
+      '2': '0',
+      '3': '5',
+      '4': '5',
+      '5': '5',
+      '6': '5',
+      '7': '5',
+      '8': '9',
+      '9': '9',
+    }
   }
 
-  round() {
+  round(number) {
+    this.number = number
+
     if (this.number === '') return '??'
 
     let new_last_digit = this._lastDigitRounded()
@@ -17,22 +30,6 @@ export default class RoundToFive {
   }
 
   _lastDigitRounded() {
-    return this._roundToFive(Math.round(this.number).toString().slice(-1)) || 0
-  }
-
-  _roundToFive(stringNumber) {
-    const ROUND_TO_FIVE = {
-      '0': '0',
-      '1': '0',
-      '2': '0',
-      '3': '5',
-      '4': '5',
-      '5': '5',
-      '6': '5',
-      '7': '5',
-      '8': '9',
-      '9': '9',
-    }
-    return ROUND_TO_FIVE[stringNumber]
+    return this.roundingTable[Math.round(this.number).toString().slice(-1)] || 0
   }
 }
