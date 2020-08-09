@@ -52,7 +52,7 @@ export default class extends Controller {
 
   chooseArtMedium() {
     this.data.set('artMedium', event.target.value)
-    this.data.set('priceConstant', this._artMediumPricePer())
+    this.data.set('pricePer', this._artMediumPricePer())
     this._updateArtMediumHeading()
     this._clearPrice()
     this._activateGetPriceButton()
@@ -100,7 +100,7 @@ export default class extends Controller {
     return new Calculator.for(this._pricingMethod()).roundedPrice(
       Number(this.lengthTarget.value),
       Number(this.widthTarget.value),
-      Number(this.data.get('priceConstant')),
+      Number(this.data.get('pricePer')),
       RoundToFive
     )
   }

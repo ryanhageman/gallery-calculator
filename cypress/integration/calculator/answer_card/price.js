@@ -34,7 +34,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('original-paper-button').click()
     cy.findByTestId('calculator').then((calculator) => {
       calculator
-        .attr('data-calculator-price-constant', '6.94')
+        .attr('data-calculator-price-per', '6.94')
         .attr('data-calculator-art-medium', 'linear-inch')
     })
     cy.findByTestId('get-price-button').click()
@@ -48,7 +48,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('original-paper-button').click()
     cy.findByTestId('calculator').then((calculator) => {
       calculator
-        .attr('data-calculator-price-constant', '1.16')
+        .attr('data-calculator-price-per', '1.16')
         .attr('data-calculator-art-medium', 'square-inch')
     })
     cy.findByTestId('get-price-button').click()
