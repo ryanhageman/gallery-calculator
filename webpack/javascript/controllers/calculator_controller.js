@@ -52,7 +52,7 @@ export default class extends Controller {
 
   chooseArtMedium() {
     this.data.set('artMedium', event.target.value)
-    this.data.set('priceConstant', this._setPriceConstant())
+    this.data.set('priceConstant', this._artMediumPricePer())
     this._updateArtMediumHeading()
     this._clearPrice()
     this._activateGetPriceButton()
@@ -105,7 +105,7 @@ export default class extends Controller {
     )
   }
 
-  _setPriceConstant() {
+  _artMediumPricePer() {
     const PRICE_PER = {
       'original--paper': this.data.get('originalPaper'),
       'original--canvas': this.data.get('originalCanvas'),
