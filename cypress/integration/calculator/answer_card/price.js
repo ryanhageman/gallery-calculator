@@ -26,4 +26,32 @@ describe('Calculator Answer Card - Price', () => {
 
     cy.findByTestId('price').contains('$ -')
   })
+
+  it('properly calculates price per linear inch', () => {
+    cy.findByTestId('length').type('36')
+    cy.findByTestId('width').type('36')
+    cy.findByTestId('original-button').click()
+    cy.findByTestId('original-paper-button').click()
+    cy.findByTestId('calculator').then((calculator) => {
+      calculator
+        .attr('data-calculator-price-constant', '6.94')
+        .attr('data-calculator-artwork-medium', 'linear-inch')
+    })
+    cy.findByTestId('get-price-button').click()
+    cy.findByTestId('price').contains(/500/)
+  })
+
+  it('properly calculates price per square inch', () => {
+    cy.findByTestId('length').type('36')
+    cy.findByTestId('width').type('36')
+    cy.findByTestId('original-button').click()
+    cy.findByTestId('original-paper-button').click()
+    cy.findByTestId('calculator').then((calculator) => {
+      calculator
+        .attr('data-calculator-price-constant', '1.16')
+        .attr('data-calculator-artwork-medium', 'square-inch')
+    })
+    cy.findByTestId('get-price-button').click()
+    cy.findByTestId('price').contains(/1505/)
+  })
 })
