@@ -50,7 +50,7 @@ export default class extends Controller {
     }
   }
 
-  artworkMediumSelect() {
+  chooseArtMedium() {
     this.data.set('artworkMedium', event.target.value)
     this.data.set('priceConstant', this._setPriceConstant())
     this._updateArtworkTypeHeading()

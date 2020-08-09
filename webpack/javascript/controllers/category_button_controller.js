@@ -28,7 +28,7 @@ export default class extends Controller {
     }
   }
 
-  artworkMediumSelect() {
+  chooseArtMedium() {
     this.artworkMedium = event.target.value
     this._closeAllPriceListGroups()
 
