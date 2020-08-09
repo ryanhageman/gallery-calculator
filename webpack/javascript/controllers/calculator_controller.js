@@ -7,7 +7,7 @@ export default class extends Controller {
     'length',
     'width',
     'price',
-    'sizeInWords',
+    'sizeMessage',
     'artMediumHeading',
     'categoryButton',
     'artMediumButton',
@@ -21,16 +21,16 @@ export default class extends Controller {
   }
 
   showSizeOnAnswerCard() {
-    let message = 'Ready...'
+    let sizeMessage = 'Ready...'
 
     if (this.lengthTarget.value || this.widthTarget.value) {
-      message = `${this.lengthTarget.value || '-'} x ${
+      sizeMessage = `${this.lengthTarget.value || '-'} x ${
         this.widthTarget.value || '-'
       }`
     }
 
-    this.data.set('sizeMessage', message)
-    this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
+    this.data.set('sizeMessage', sizeMessage)
+    this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
     this._clearPrice()
     this._activateGetPriceButton()
   }
@@ -117,7 +117,7 @@ export default class extends Controller {
   }
 
   _resetAnswerCard() {
-    this.sizeInWordsTarget.innerHTML = this.data.get('sizeMessage')
+    this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
     this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
     this._clearPrice()
   }
