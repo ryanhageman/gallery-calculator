@@ -1,5 +1,5 @@
-import PerLinearInchCalculator from '../../../webpack/javascript/services/per_linear_inch_calculator'
-import RoundToFive from '../../../webpack/javascript/services/round_to_five'
+import PerLinearInchCalculator from '../../../../webpack/javascript/services/per_linear_inch_calculator'
+import RoundToFive from '../../../../webpack/javascript/services/round_to_five'
 
 describe('Per Square Inch Calculator', () => {
   it('calculates the price per square inch', () => {
