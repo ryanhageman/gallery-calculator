@@ -1,4 +1,4 @@
-import RoundToFive from '../../../webpack/javascript/services/round_to_five'
+import RoundToFive from '../../../../webpack/javascript/services/round_to_five'
 
 describe('RoundToFive', () => {
   it('rounds numbers below 3 down to 0', () => {

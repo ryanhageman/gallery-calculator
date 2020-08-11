@@ -3,9 +3,8 @@
 # Calculate prices
 module PriceHelpers
   def price(scheme, length, width, price_constant)
-    if scheme == 'linear'
-      return price_per_linear_inch(length, width, price_constant)
-    end
+    return price_per_linear_inch(length, width, price_constant) if scheme == 'linear'
+    return jackson_square_price(length, width, price_constant) if scheme == 'jackson_square'
 
     price_per_square_inch(length, width, price_constant)
   end
@@ -17,6 +16,11 @@ module PriceHelpers
 
   def price_per_square_inch(length, width, price_constant)
     initial_price = (length * width) * price_constant
+    rounded_price(initial_price, ROUND_TO_FIVE)
+  end
+
+  def jackson_square_price(length, width, price_constant)
+    initial_price = (length * width) * price_constant + (length + width)
     rounded_price(initial_price, ROUND_TO_FIVE)
   end
 

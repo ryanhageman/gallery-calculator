@@ -77,7 +77,7 @@ export default class extends Controller {
 
   _pricingMethod() {
     const PRICING_METHOD = {
-      'original--jackson-square': 'perSquareInch',
+      'original--jackson-square': 'jacksonSquare',
       'original--canvas': 'perSquareInch',
       'original--paper': 'perLinearInch',
       'print--canvas': 'perLinearInch',
