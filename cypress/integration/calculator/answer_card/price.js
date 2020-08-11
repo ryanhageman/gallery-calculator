@@ -54,4 +54,18 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('get-price-button').click()
     cy.findByTestId('price').contains(/1505/)
   })
+
+  it('properly calculates a Jackson Square price', () => {
+    cy.findByTestId('length').type('24')
+    cy.findByTestId('width').type('24')
+    cy.findByTestId('original-button').click()
+    cy.findByTestId('original-paper-button').click()
+    cy.findByTestId('calculator').then((calculator) => {
+      calculator
+        .attr('data-calculator-price-per', '0.385')
+        .attr('data-calculator-art-medium', 'original--jackson-square')
+    })
+    cy.findByTestId('get-price-button').click()
+    cy.findByTestId('price').contains(/270/)
+  })
 })
