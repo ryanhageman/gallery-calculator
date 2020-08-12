@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
-
 require 'spec_helper'
 require_relative '../../helpers/price_helpers'
 
@@ -40,5 +38,3 @@ RSpec.describe 'PriceHelpers' do
     end
   end
 end
-
-# rubocop:enable Metrics/BlockLength
