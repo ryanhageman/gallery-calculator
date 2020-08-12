@@ -15,4 +15,7 @@ guard :rspec, cmd: 'bundle exec rspec',
   # Watch the helpers directory and run the corresponding spec
   helpers_directory = %r{^helpers/(?<helper>.+)\.rb$}
   watch(helpers_directory) { |m| "spec/helpers/#{m[:helper]}_spec.rb" }
+
+  services_directory = %r{^services/(?<service>.+)\.rb$}
+  watch(services_directory) { |m| "spec/services/#{m[:service]}_spec.rb" }
 end
