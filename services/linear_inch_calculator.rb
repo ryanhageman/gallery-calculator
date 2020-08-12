@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './application_service.rb'
+require_relative './application_service'
 
 # Calculates a price per linear inch
 class LinearInchCalculator < ApplicationService

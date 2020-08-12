@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative './application_service.rb'
-require_relative './jackson_square_calculator.rb'
-require_relative './linear_inch_calculator.rb'
-require_relative './square_inch_calculator.rb'
+require_relative './application_service'
+require_relative './jackson_square_calculator'
+require_relative './linear_inch_calculator'
+require_relative './square_inch_calculator'
 
 # Factory that instantiates the proper calculator
 # and returns the price for the artwork

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require_relative '../../services/calculator.rb'
+require_relative '../../services/calculator'
 
 RSpec.describe 'Calculator' do
   it 'instantiates a Jackson Square Calculator and returns the proper price' do
