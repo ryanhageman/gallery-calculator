@@ -113,8 +113,8 @@ div { class="o-layout"
               data-testid="print-canvas-button"} Canvas
 
   - data.categories.each do |category|
-    - category_code, category_title, category_pricing = category
-    - price_constant = data.prices[category_code]
+    - category_code, category_title, pricing_scheme = category
+    - price_per = data.prices[category_code]
     div { class="c-price-list-card__group"
           data-target="category-button.#{{category_code}}"
           data-testid="#{{category_code}}"}
@@ -140,6 +140,10 @@ div { class="o-layout"
               - length, width = dimensions
               tr
                 td.c-price-table__size #{length} x #{width}
-                td.c-price-table__price $#{price(category_pricing, length, width, price_constant)}
+                - artwork = { length: length,
+                              width: width,
+                              price_per: price_per,
+                              pricing_scheme: pricing_scheme }
+                td.c-price-table__price $#{price(artwork)}
 
   .o-layout__footer

@@ -1,27 +1,12 @@
 # frozen_string_literal: true
 
+require_relative '../services/calculator.rb'
+
 # Calculate prices
 module PriceHelpers
-  def price(scheme, length, width, price_constant)
-    return price_per_linear_inch(length, width, price_constant) if scheme == 'linear'
-    return jackson_square_price(length, width, price_constant) if scheme == 'jackson_square'
-
-    price_per_square_inch(length, width, price_constant)
-  end
-
-  def price_per_linear_inch(length, width, price_constant)
-    initial_price = (length + width) * price_constant
-    rounded_price(initial_price, ROUND_TO_FIVE)
-  end
-
-  def price_per_square_inch(length, width, price_constant)
-    initial_price = (length * width) * price_constant
-    rounded_price(initial_price, ROUND_TO_FIVE)
-  end
-
-  def jackson_square_price(length, width, price_constant)
-    initial_price = (length * width) * price_constant + (length + width)
-    rounded_price(initial_price, ROUND_TO_FIVE)
+  def price(artwork)
+    price = Calculator.call(artwork)
+    rounded_price(price, ROUND_TO_FIVE)
   end
 
   private
