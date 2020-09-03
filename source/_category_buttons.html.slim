@@ -1,0 +1,21 @@
+.c-category-button__group
+  .c-category-button
+    input { type="radio"
+            name="category"
+            value="original"
+            id="original"
+            class="c-category-button__input"
+            checked=true
+            data-target="calculator.categoryButton"
+            data-action="calculator#toggleCategoryDropdown" }
+    label { class="c-button c-button--large c-category-button__label" for="original" data-testid="original-button" } Original
+
+  .c-category-button
+    input { type="radio"
+            name="category"
+            value="print"
+            id="print"
+            class="c-category-button__input"
+            data-target="calculator.categoryButton"
+            data-action="calculator#toggleCategoryDropdown" }
+    label { class="c-button c-button--large c-category-button__label" for="print" data-testid="print-button"} Print
