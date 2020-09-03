@@ -1,0 +1,23 @@
+div { class="c-category-button__dropdown is-hidden"
+      data-target="calculator.printsDropdown"
+      data-testid="prints-dropdown" }
+  .c-category-button
+    input { type="radio"
+            name="art-medium"
+            value="print--paper"
+            id="print--paper"
+            class="c-category-button__input"
+            data-testid="print-paper-input"
+            data-target="calculator.artMediumButton"
+            data-action="calculator#chooseArtMedium" }
+    label { class="c-button c-category-button__label c-category-button__label--dropdown" for="print--paper" data-testid="print-paper-button"} Paper
+
+  .c-category-button
+    input { type="radio"
+            name="art-medium"
+            value="print--canvas"
+            id="print--canvas"
+            class="c-category-button__input"
+            data-target="calculator.artMediumButton"
+            data-action="calculator#chooseArtMedium" }
+    label { class="c-button c-category-button__label c-category-button__label--dropdown" for="print--canvas" data-testid="print-canvas-button"} Canvas
