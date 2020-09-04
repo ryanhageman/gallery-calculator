@@ -1,0 +1,37 @@
+---
+original:
+  paper:
+    category_code: originalPaper
+    heading: Paper Original
+    test_id: original-paper
+    pricing: linear
+    price_per: 7.15
+
+  canvas:
+    category_code: originalCanvas
+    heading: Canvas Original
+    test_id: original-canvas
+    pricing: linear
+    price_per: 1.16
+
+  jackson_square:
+    category_code: originalJacksonSquare
+    heading: J. Square Original
+    test_id: original-jackson-square
+    pricing: jackson_square
+    price_per: 0.385
+
+print:
+  paper:
+    category_code: printPaper
+    heading: Paper Print
+    test_id: print-paper
+    pricing: linear
+    price_per: 5
+
+  canvas:
+    category_code: printCanvas
+    heading: Canvas Print
+    test_id: print-canvas
+    pricing: linear
+    price_per: 7
