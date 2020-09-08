@@ -35,7 +35,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-per', '6.94')
-        .attr('data-calculator-art-medium', 'linear-inch')
+        .attr('data-calculator-pricing', 'linear')
     })
     cy.findByTestId('get-price-button').click()
     cy.findByTestId('price').contains(/500/)
@@ -49,7 +49,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-per', '1.16')
-        .attr('data-calculator-art-medium', 'square-inch')
+        .attr('data-calculator-pricing', 'square')
     })
     cy.findByTestId('get-price-button').click()
     cy.findByTestId('price').contains(/1505/)
@@ -63,7 +63,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-per', '0.385')
-        .attr('data-calculator-art-medium', 'original--jackson-square')
+        .attr('data-calculator-pricing', 'jackson_square')
     })
     cy.findByTestId('get-price-button').click()
     cy.findByTestId('price').contains(/270/)
