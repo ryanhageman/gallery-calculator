@@ -53,6 +53,7 @@ export default class extends Controller {
   chooseArtMedium() {
     let button = event.target
     this.data.set('artMedium', button.value)
+    this.data.set('pricing', button.dataset.pricing || '')
     this.data.set('pricePer', button.dataset.pricePer || 0)
     this._updateArtMediumHeading(button.dataset.heading)
     this._clearPrice()
@@ -64,22 +65,8 @@ export default class extends Controller {
     this.priceTarget.innerHTML = `$${this._price()}`
   }
 
-  _pricingMethod() {
-    const PRICING_METHOD = {
-      'original--jackson-square': 'jacksonSquare',
-      'original--canvas': 'perSquareInch',
-      'original--paper': 'perLinearInch',
-      'print--canvas': 'perLinearInch',
-      'print--paper': 'perLinearInch',
-      'linear-inch': 'perLinearInch',
-      'square-inch': 'perSquareInch',
-    }
-
-    return PRICING_METHOD[this.data.get('artMedium')]
-  }
-
   _price() {
-    return new Calculator.for(this._pricingMethod()).roundedPrice(
+    return new Calculator.for(this.data.get('pricing')).roundedPrice(
       Number(this.lengthTarget.value),
       Number(this.widthTarget.value),
       Number(this.data.get('pricePer')),
