@@ -15,7 +15,7 @@ original:
     heading: Canvas Original
     button_text: Canvas
     test_id: original-canvas
-    pricing: linear
+    pricing: square
     price_per: 1.16
 
   jackson_square:
