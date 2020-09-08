@@ -53,8 +53,7 @@ export default class extends Controller {
   chooseArtMedium() {
     let button = event.target
     this.data.set('artMedium', button.value)
-    this.data.set('pricing', button.dataset.pricing || '')
-    this.data.set('pricePer', button.dataset.pricePer || 0)
+    this._updatePricingInfo(button.dataset)
     this._updateArtMediumHeading(button.dataset.heading)
     this._clearPrice()
     this._activateGetPriceButton()
@@ -81,6 +80,11 @@ export default class extends Controller {
   _updateArtMediumHeading(heading = '(◕‿◕)') {
     this.data.set('chosenMediumMessage', heading)
     this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
+  }
+
+  _updatePricingInfo(info) {
+    this.data.set('pricing', info.pricing || '')
+    this.data.set('pricePer', info.pricePer || 0)
   }
 
   _resetAnswerCard() {
