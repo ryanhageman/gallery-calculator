@@ -51,9 +51,10 @@ export default class extends Controller {
   }
 
   chooseArtMedium() {
-    this.data.set('artMedium', event.target.value)
-    this.data.set('pricePer', event.target.dataset.pricePer || 0)
-    this._updateArtMediumHeading()
+    let button = event.target
+    this.data.set('artMedium', button.value)
+    this.data.set('pricePer', button.dataset.pricePer || 0)
+    this._updateArtMediumHeading(button.dataset.heading)
     this._clearPrice()
     this._activateGetPriceButton()
   }
@@ -61,18 +62,6 @@ export default class extends Controller {
   getPrice() {
     event.preventDefault()
     this.priceTarget.innerHTML = `$${this._price()}`
-  }
-
-  _artMediumHeading() {
-    const ART_MEDIUM_HEADING = {
-      'original--paper': 'Paper Original',
-      'original--canvas': 'Canvas Original',
-      'original--jackson-square': 'Canvas for J. Square',
-      'print--paper': 'Paper Print',
-      'print--canvas': 'Canvas Print',
-    }
-
-    return ART_MEDIUM_HEADING[this.data.get('artMedium')] || '(◕‿◕)'
   }
 
   _pricingMethod() {
@@ -102,8 +91,8 @@ export default class extends Controller {
     this.priceTarget.innerHTML = '$ -'
   }
 
-  _updateArtMediumHeading() {
-    this.data.set('chosenMediumMessage', this._artMediumHeading())
+  _updateArtMediumHeading(heading = '(◕‿◕)') {
+    this.data.set('chosenMediumMessage', heading)
     this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
   }
 
