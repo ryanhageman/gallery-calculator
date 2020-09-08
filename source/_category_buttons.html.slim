@@ -1,6 +1,6 @@
 .c-category-button__group
   - data.artwork_info.each do |category_info|
-    - category, attributes = category_info
+    - category = category_info[0]
     - category_name = category.capitalize
     - is_chosen = data.artwork_info.first[0] == category ? {checked: true} : {checked: false}
 
@@ -13,4 +13,7 @@
               *is_chosen
               data-target="calculator.categoryButton"
               data-action="calculator#toggleCategoryDropdown" }
-      label { class="c-button c-button--large c-category-button__label" for="#{category}" data-testid="#{category}-button" } = category_name
+      label { class="c-button c-button--large c-category-button__label"
+              for="#{category}"
+              data-testid="#{category}-button" }
+              = category_name
