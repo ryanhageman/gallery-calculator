@@ -52,7 +52,7 @@ export default class extends Controller {
 
   chooseArtMedium() {
     this.data.set('artMedium', event.target.value)
-    this.data.set('pricePer', this._artMediumPricePer())
+    this.data.set('pricePer', event.target.dataset.pricePer || 0)
     this._updateArtMediumHeading()
     this._clearPrice()
     this._activateGetPriceButton()
@@ -87,18 +87,6 @@ export default class extends Controller {
     }
 
     return PRICING_METHOD[this.data.get('artMedium')]
-  }
-
-  _artMediumPricePer() {
-    const PRICE_PER = {
-      'original--paper': this.data.get('originalPaper'),
-      'original--canvas': this.data.get('originalCanvas'),
-      'original--jackson-square': this.data.get('originalJs'),
-      'print--paper': this.data.get('printPaper'),
-      'print--canvas': this.data.get('printCanvas'),
-    }
-
-    return PRICE_PER[this.data.get('artMedium')] || 0
   }
 
   _price() {
