@@ -1,4 +1,4 @@
-export default class PerLinearInchCalculator {
+export default class LinearInchCalculator {
   price(length, width, pricePer) {
     return (length + width) * pricePer
   }

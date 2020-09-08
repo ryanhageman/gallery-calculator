@@ -1,30 +1,30 @@
-import PerLinearInchCalculator from '../../../../webpack/javascript/services/per_linear_inch_calculator'
+import SquareInchCalculator from '../../../../webpack/javascript/services/square_inch_calculator'
 import RoundToFive from '../../../../webpack/javascript/services/round_to_five'
 
-describe('Per Square Inch Calculator', () => {
+describe('Square Inch Calculator', () => {
   it('calculates the price per square inch', () => {
     const length = 3
     const width = 3
     const pricePer = 3
 
-    const result = new PerLinearInchCalculator().price(length, width, pricePer)
+    const result = new SquareInchCalculator().price(length, width, pricePer)
 
-    expect(result).to.eq(18)
+    expect(result).to.eq(27)
   })
 
   it('calculates a rounded price', () => {
     const length = 36
     const width = 36
-    const pricePer = 6.93
+    const pricePer = 1.16
     const roundingScheme = RoundToFive
 
-    const result = new PerLinearInchCalculator().roundedPrice(
+    const result = new SquareInchCalculator().roundedPrice(
       length,
       width,
       pricePer,
       roundingScheme
     )
 
-    expect(result).to.eq(500)
+    expect(result).to.eq(1505)
   })
 })

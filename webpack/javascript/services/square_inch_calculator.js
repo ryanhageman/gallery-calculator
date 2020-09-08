@@ -1,4 +1,4 @@
-export default class PerSquareInchCalculator {
+export default class SquareInchCalculator {
   price(length, width, pricePer) {
     return length * width * pricePer
   }
