@@ -1,0 +1,23 @@
+- data.artwork_info.each do |category_info|
+  - main_category, pricing_categories = category_info
+  - is_visible = data.artwork_info.first[0] == main_category ? "" : "is-hidden"
+
+  div { class="c-category-button__dropdown c-category-button__dropdown--horizontal #{is_visible}"
+        data-target="calculator.#{main_category}sDropdown category-button.#{main_category}sDropdown"
+        data-testid="#{main_category}s-dropdown" }
+
+    - pricing_categories.each do |pricing_category|
+      - pricing_name, attributes = pricing_category
+
+      .c-category-button
+        input { type="radio"
+                name="art-medium"
+                value="#{attributes['pricing_code']}"
+                id="#{attributes['pricing_code']}"
+                class="c-category-button__input"
+                data-target="calculator.artMediumButton"
+                data-action="calculator#chooseArtMedium" }
+        label { class="c-button c-category-button__label c-category-button__label--dropdown"
+                for="#{attributes['pricing_code']}"
+                data-testid="#{attributes['test_id']}-button" } = attributes['button_text']
+
