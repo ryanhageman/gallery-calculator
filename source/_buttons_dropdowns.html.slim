@@ -12,12 +12,13 @@
       .c-category-button
         input { type="radio"
                 name="art-medium"
-                value="#{attributes['pricing_code']}"
-                id="#{attributes['pricing_code']}"
+                value="#{attributes.pricing_code}"
+                id="#{attributes.pricing_code}"
                 class="c-category-button__input"
                 data-target="calculator.artMediumButton"
                 data-action="calculator#chooseArtMedium" }
+
         label { class="c-button c-category-button__label c-category-button__label--dropdown"
-                for="#{attributes['pricing_code']}"
-                data-testid="#{attributes['test_id']}-button" } = attributes['button_text']
+                for="#{attributes.pricing_code}"
+                data-testid="#{attributes.test_id}-button" } = attributes.button_text
 
