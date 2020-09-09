@@ -8,7 +8,7 @@ export default class extends Controller {
     'width',
     'price',
     'sizeMessage',
-    'artMediumHeading',
+    'pricingMethodHeading',
     'categoryButton',
     'pricingMethodButton',
     'getPriceButton',
@@ -54,7 +54,7 @@ export default class extends Controller {
     let button = event.target
     this.data.set('artMedium', button.value)
     this._updatePricingInfo(button.dataset)
-    this._updateArtMediumHeading(button.dataset.heading)
+    this._updatePricingMethodHeading(button.dataset.heading)
     this._clearPrice()
     this._activateGetPriceButton()
   }
@@ -77,9 +77,11 @@ export default class extends Controller {
     this.priceTarget.innerHTML = '$ -'
   }
 
-  _updateArtMediumHeading(heading = '(◕‿◕)') {
+  _updatePricingMethodHeading(heading = '(◕‿◕)') {
     this.data.set('chosenMediumMessage', heading)
-    this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
+    this.pricingMethodHeadingTarget.innerHTML = this.data.get(
+      'chosenMediumMessage'
+    )
   }
 
   _updatePricingInfo(info) {
@@ -89,7 +91,9 @@ export default class extends Controller {
 
   _resetAnswerCard() {
     this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
-    this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
+    this.pricingMethodHeadingTarget.innerHTML = this.data.get(
+      'chosenMediumMessage'
+    )
     this._clearPrice()
   }
 
