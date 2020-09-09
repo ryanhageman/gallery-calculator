@@ -7,7 +7,7 @@ export default class extends Controller {
     'length',
     'width',
     'price',
-    'sizeMessage',
+    'sizeHeading',
     'pricingMethodHeading',
     'categoryButton',
     'pricingMethodButton',
@@ -21,16 +21,16 @@ export default class extends Controller {
   }
 
   showSizeOnAnswerCard() {
-    let sizeMessage = 'Ready...'
+    let sizeHeading = 'Ready...'
 
     if (this.lengthTarget.value || this.widthTarget.value) {
-      sizeMessage = `${this.lengthTarget.value || '-'} x ${
+      sizeHeading = `${this.lengthTarget.value || '-'} x ${
         this.widthTarget.value || '-'
       }`
     }
 
-    this.data.set('sizeMessage', sizeMessage)
-    this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
+    this.data.set('sizeHeading', sizeHeading)
+    this.sizeHeadingTarget.innerHTML = this.data.get('sizeHeading')
     this._clearPrice()
     this._activateGetPriceButton()
   }
@@ -90,7 +90,7 @@ export default class extends Controller {
   }
 
   _resetAnswerCard() {
-    this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
+    this.sizeHeadingTarget.innerHTML = this.data.get('sizeHeading')
     this.pricingMethodHeadingTarget.innerHTML = this.data.get(
       'pricingMethodHeading'
     )
