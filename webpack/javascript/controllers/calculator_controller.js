@@ -40,19 +40,17 @@ export default class extends Controller {
 
     switch (this.data.get('category')) {
       case 'original':
-        this.originalsDropdownTarget.classList.remove('is-hidden')
-        this.printsDropdownTarget.classList.add('is-hidden')
+        this._showOriginalsDropdown()
         break
       case 'print':
-        this.printsDropdownTarget.classList.remove('is-hidden')
-        this.originalsDropdownTarget.classList.add('is-hidden')
+        this._showPrintsDropdown()
         break
     }
   }
 
   setPricingMethod() {
     let button = event.target
-    this.data.set('artMedium', button.value)
+    this.data.set('pricingMethod', button.value)
     this._updatePricingInfo(button.dataset)
     this._updatePricingMethodHeading(button.dataset.heading)
     this._clearPrice()
@@ -101,13 +99,31 @@ export default class extends Controller {
     if (
       this.lengthTarget.value &&
       this.widthTarget.value &&
-      this.data.get('artMedium')
+      this.data.get('pricingMethod')
     ) {
-      this.getPriceButtonTarget.classList.remove('is-disabled')
-      this.getPriceButtonTarget.disabled = false
+      this._enablePriceButton()
     } else {
-      this.getPriceButtonTarget.classList.add('is-disabled')
-      this.getPriceButtonTarget.disabled = true
+      this._disablePriceButton()
     }
+  }
+
+  _enablePriceButton() {
+    this.getPriceButtonTarget.classList.remove('is-disabled')
+    this.getPriceButtonTarget.disabled = false
+  }
+
+  _disablePriceButton() {
+    this.getPriceButtonTarget.classList.add('is-disabled')
+    this.getPriceButtonTarget.disabled = true
+  }
+
+  _showOriginalsDropdown() {
+    this.originalsDropdownTarget.classList.remove('is-hidden')
+    this.printsDropdownTarget.classList.add('is-hidden')
+  }
+
+  _showPrintsDropdown() {
+    this.printsDropdownTarget.classList.remove('is-hidden')
+    this.originalsDropdownTarget.classList.add('is-hidden')
   }
 }
