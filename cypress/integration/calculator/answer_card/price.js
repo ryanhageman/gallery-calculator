@@ -17,7 +17,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('length').type('4')
     cy.findByTestId('width').type('4')
     cy.findByTestId('original-button').click()
-    cy.findByTestId('original-paper-button').click()
+    cy.findByTestId('original-jackson-square-button').click()
     cy.findByTestId('get-price-button').click()
 
     cy.findByTestId('price').contains(/\d/)
@@ -30,8 +30,8 @@ describe('Calculator Answer Card - Price', () => {
   it('properly calculates price per linear inch', () => {
     cy.findByTestId('length').type('36')
     cy.findByTestId('width').type('36')
-    cy.findByTestId('original-button').click()
-    cy.findByTestId('original-paper-button').click()
+    cy.findByTestId('print-button').click()
+    cy.findByTestId('print-canvas-button').click()
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-per', '6.94')
@@ -44,8 +44,8 @@ describe('Calculator Answer Card - Price', () => {
   it('properly calculates price per square inch', () => {
     cy.findByTestId('length').type('36')
     cy.findByTestId('width').type('36')
-    cy.findByTestId('original-button').click()
-    cy.findByTestId('original-paper-button').click()
+    cy.findByTestId('print-button').click()
+    cy.findByTestId('print-paper-button').click()
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-per', '1.16')
@@ -59,7 +59,7 @@ describe('Calculator Answer Card - Price', () => {
     cy.findByTestId('length').type('24')
     cy.findByTestId('width').type('24')
     cy.findByTestId('original-button').click()
-    cy.findByTestId('original-paper-button').click()
+    cy.findByTestId('original-canvas-button').click()
     cy.findByTestId('calculator').then((calculator) => {
       calculator
         .attr('data-calculator-price-per', '0.385')
