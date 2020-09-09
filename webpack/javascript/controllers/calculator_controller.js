@@ -96,14 +96,20 @@ export default class extends Controller {
   }
 
   _activateGetPriceButton() {
+    this._form_is_complete()
+      ? this._enablePriceButton()
+      : this._disablePriceButton()
+  }
+
+  _form_is_complete() {
     if (
       this.lengthTarget.value &&
       this.widthTarget.value &&
       this.data.get('pricingMethod')
     ) {
-      this._enablePriceButton()
+      return true
     } else {
-      this._disablePriceButton()
+      return false
     }
   }
 
