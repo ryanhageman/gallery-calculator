@@ -1,13 +1,13 @@
-import PerSquareInchCalculator from './per_square_inch_calculator'
-import PerLinearInchCalculator from './per_linear_inch_calculator'
+import SquareInchCalculator from './square_inch_calculator'
+import LinearInchCalculator from './linear_inch_calculator'
 import JacksonSquareCalculator from './jackson_square_calculator'
 
 export default class Calculator {
   static for(pricingMethod) {
     let calculatorClass = {
-      perSquareInch: PerSquareInchCalculator,
-      perLinearInch: PerLinearInchCalculator,
-      jacksonSquare: JacksonSquareCalculator,
+      square: SquareInchCalculator,
+      linear: LinearInchCalculator,
+      jackson_square: JacksonSquareCalculator,
     }[pricingMethod]
 
     return new calculatorClass()

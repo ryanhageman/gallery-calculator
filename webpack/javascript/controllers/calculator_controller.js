@@ -7,10 +7,10 @@ export default class extends Controller {
     'length',
     'width',
     'price',
-    'sizeMessage',
-    'artMediumHeading',
+    'sizeHeading',
+    'pricingMethodHeading',
     'categoryButton',
-    'artMediumButton',
+    'pricingMethodButton',
     'getPriceButton',
     'originalsDropdown',
     'printsDropdown',
@@ -21,16 +21,16 @@ export default class extends Controller {
   }
 
   showSizeOnAnswerCard() {
-    let sizeMessage = 'Ready...'
+    let sizeHeading = 'Ready...'
 
     if (this.lengthTarget.value || this.widthTarget.value) {
-      sizeMessage = `${this.lengthTarget.value || '-'} x ${
+      sizeHeading = `${this.lengthTarget.value || '-'} x ${
         this.widthTarget.value || '-'
       }`
     }
 
-    this.data.set('sizeMessage', sizeMessage)
-    this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
+    this.data.set('sizeHeading', sizeHeading)
+    this.sizeHeadingTarget.innerHTML = this.data.get('sizeHeading')
     this._clearPrice()
     this._activateGetPriceButton()
   }
@@ -40,20 +40,19 @@ export default class extends Controller {
 
     switch (this.data.get('category')) {
       case 'original':
-        this.originalsDropdownTarget.classList.remove('is-hidden')
-        this.printsDropdownTarget.classList.add('is-hidden')
+        this._showOriginalsDropdown()
         break
       case 'print':
-        this.printsDropdownTarget.classList.remove('is-hidden')
-        this.originalsDropdownTarget.classList.add('is-hidden')
+        this._showPrintsDropdown()
         break
     }
   }
 
-  chooseArtMedium() {
-    this.data.set('artMedium', event.target.value)
-    this.data.set('pricePer', this._artMediumPricePer())
-    this._updateArtMediumHeading()
+  setPricingMethod() {
+    let button = event.target
+    this.data.set('pricingMethod', button.value)
+    this._updatePricingInfo(button.dataset)
+    this._updatePricingMethodHeading(button.dataset.heading)
     this._clearPrice()
     this._activateGetPriceButton()
   }
@@ -63,46 +62,8 @@ export default class extends Controller {
     this.priceTarget.innerHTML = `$${this._price()}`
   }
 
-  _artMediumHeading() {
-    const ART_MEDIUM_HEADING = {
-      'original--paper': 'Paper Original',
-      'original--canvas': 'Canvas Original',
-      'original--jackson-square': 'Canvas for J. Square',
-      'print--paper': 'Paper Print',
-      'print--canvas': 'Canvas Print',
-    }
-
-    return ART_MEDIUM_HEADING[this.data.get('artMedium')] || '(◕‿◕)'
-  }
-
-  _pricingMethod() {
-    const PRICING_METHOD = {
-      'original--jackson-square': 'jacksonSquare',
-      'original--canvas': 'perSquareInch',
-      'original--paper': 'perLinearInch',
-      'print--canvas': 'perLinearInch',
-      'print--paper': 'perLinearInch',
-      'linear-inch': 'perLinearInch',
-      'square-inch': 'perSquareInch',
-    }
-
-    return PRICING_METHOD[this.data.get('artMedium')]
-  }
-
-  _artMediumPricePer() {
-    const PRICE_PER = {
-      'original--paper': this.data.get('originalPaper'),
-      'original--canvas': this.data.get('originalCanvas'),
-      'original--jackson-square': this.data.get('originalJs'),
-      'print--paper': this.data.get('printPaper'),
-      'print--canvas': this.data.get('printCanvas'),
-    }
-
-    return PRICE_PER[this.data.get('artMedium')] || 0
-  }
-
   _price() {
-    return new Calculator.for(this._pricingMethod()).roundedPrice(
+    return new Calculator.for(this.data.get('pricing')).roundedPrice(
       Number(this.lengthTarget.value),
       Number(this.widthTarget.value),
       Number(this.data.get('pricePer')),
@@ -114,28 +75,61 @@ export default class extends Controller {
     this.priceTarget.innerHTML = '$ -'
   }
 
-  _updateArtMediumHeading() {
-    this.data.set('chosenMediumMessage', this._artMediumHeading())
-    this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
+  _updatePricingMethodHeading(heading = '(◕‿◕)') {
+    this.data.set('pricingMethodHeading', heading)
+    this.pricingMethodHeadingTarget.innerHTML = this.data.get(
+      'pricingMethodHeading'
+    )
+  }
+
+  _updatePricingInfo(info) {
+    this.data.set('pricing', info.pricing || '')
+    this.data.set('pricePer', info.pricePer || 0)
   }
 
   _resetAnswerCard() {
-    this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
-    this.artMediumHeadingTarget.innerHTML = this.data.get('chosenMediumMessage')
+    this.sizeHeadingTarget.innerHTML = this.data.get('sizeHeading')
+    this.pricingMethodHeadingTarget.innerHTML = this.data.get(
+      'pricingMethodHeading'
+    )
     this._clearPrice()
   }
 
   _activateGetPriceButton() {
+    this._form_is_complete()
+      ? this._enablePriceButton()
+      : this._disablePriceButton()
+  }
+
+  _form_is_complete() {
     if (
       this.lengthTarget.value &&
       this.widthTarget.value &&
-      this.data.get('artMedium')
+      this.data.get('pricingMethod')
     ) {
-      this.getPriceButtonTarget.classList.remove('is-disabled')
-      this.getPriceButtonTarget.disabled = false
+      return true
     } else {
-      this.getPriceButtonTarget.classList.add('is-disabled')
-      this.getPriceButtonTarget.disabled = true
+      return false
     }
+  }
+
+  _enablePriceButton() {
+    this.getPriceButtonTarget.classList.remove('is-disabled')
+    this.getPriceButtonTarget.disabled = false
+  }
+
+  _disablePriceButton() {
+    this.getPriceButtonTarget.classList.add('is-disabled')
+    this.getPriceButtonTarget.disabled = true
+  }
+
+  _showOriginalsDropdown() {
+    this.originalsDropdownTarget.classList.remove('is-hidden')
+    this.printsDropdownTarget.classList.add('is-hidden')
+  }
+
+  _showPrintsDropdown() {
+    this.printsDropdownTarget.classList.remove('is-hidden')
+    this.originalsDropdownTarget.classList.add('is-hidden')
   }
 }

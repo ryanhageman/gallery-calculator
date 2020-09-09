@@ -5,8 +5,8 @@ describe('Calculator Answer Card - Medium', () => {
 
   it('initially shows the default chosen medium message', () => {
     cy.findByTestId('calculator').then((calculator) => {
-      cy.findByTestId('art-medium-heading').contains(
-        calculator.attr('data-calculator-chosen-medium-message')
+      cy.findByTestId('pricing-method-heading').contains(
+        calculator.attr('data-calculator-pricing-method-heading')
       )
     })
   })
@@ -16,8 +16,8 @@ describe('Calculator Answer Card - Medium', () => {
     cy.findByTestId('original-paper-button').click()
 
     cy.findByTestId('calculator').then((calculator) => {
-      cy.findByTestId('art-medium-heading').contains(
-        calculator.attr('data-calculator-chosen-medium-message')
+      cy.findByTestId('pricing-method-heading').contains(
+        calculator.attr('data-calculator-pricing-method-heading')
       )
     })
   })

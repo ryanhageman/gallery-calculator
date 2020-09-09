@@ -20,85 +20,9 @@ form.c-calculator-form
             data-target="calculator.width"
             data-action="keyup->calculator#showSizeOnAnswerCard" }
 
-  .c-category-button__group
-    .c-category-button
-      input { type="radio"
-              name="category"
-              value="original"
-              id="original"
-              class="c-category-button__input"
-              checked=true
-              data-target="calculator.categoryButton"
-              data-action="calculator#toggleCategoryDropdown" }
-      label { class="c-button c-button--large c-category-button__label" for="original" data-testid="original-button" } Original
+  == partial "category_buttons"
 
-    .c-category-button
-      input { type="radio"
-              name="category"
-              value="print"
-              id="print"
-              class="c-category-button__input"
-              data-target="calculator.categoryButton"
-              data-action="calculator#toggleCategoryDropdown" }
-      label { class="c-button c-button--large c-category-button__label" for="print" data-testid="print-button"} Print
-
-  div { class="c-category-button__dropdown"
-        data-target="calculator.originalsDropdown"
-        data-testid='originals-dropdown' }
-    .c-category-button
-      input { type="radio"
-              name="art-medium"
-              value="original--paper"
-              id="original--paper"
-              class="c-category-button__input"
-              data-target="calculator.artMediumButton"
-              data-action="calculator#chooseArtMedium" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="original--paper" data-testid="original-paper-button" } Paper
-
-    .c-category-button
-      input { type="radio"
-              name="art-medium"
-              value="original--canvas"
-              id="original--canvas"
-              class="c-category-button__input"
-              data-testid="original-canvas-input"
-              data-target="calculator.artMediumButton"
-              data-action="calculator#chooseArtMedium" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="original--canvas" data-testid="original-canvas-button"} Canvas
-
-    .c-category-button
-      input { type="radio"
-              name="art-medium"
-              value="original--jackson-square"
-              id="original--jackson-square"
-              class="c-category-button__input"
-              data-target="calculator.artMediumButton"
-              data-action="calculator#chooseArtMedium" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="original--jackson-square" data-testid="original-jackson-square-button"} J. Square
-
-  div { class="c-category-button__dropdown is-hidden"
-        data-target="calculator.printsDropdown"
-        data-testid="prints-dropdown" }
-    .c-category-button
-      input { type="radio"
-              name="art-medium"
-              value="print--paper"
-              id="print--paper"
-              class="c-category-button__input"
-              data-testid="print-paper-input"
-              data-target="calculator.artMediumButton"
-              data-action="calculator#chooseArtMedium" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="print--paper" data-testid="print-paper-button"} Paper
-
-    .c-category-button
-      input { type="radio"
-              name="art-medium"
-              value="print--canvas"
-              id="print--canvas"
-              class="c-category-button__input"
-              data-target="calculator.artMediumButton"
-              data-action="calculator#chooseArtMedium" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="print--canvas" data-testid="print-canvas-button"} Canvas
+  == partial "buttons_dropdowns"
 
   button {  class="c-button c-button--submit is-disabled"
             data-testid="get-price-button"
