@@ -78,9 +78,9 @@ export default class extends Controller {
   }
 
   _updatePricingMethodHeading(heading = '(◕‿◕)') {
-    this.data.set('chosenMediumMessage', heading)
+    this.data.set('pricingMethodHeading', heading)
     this.pricingMethodHeadingTarget.innerHTML = this.data.get(
-      'chosenMediumMessage'
+      'pricingMethodHeading'
     )
   }
 
@@ -92,7 +92,7 @@ export default class extends Controller {
   _resetAnswerCard() {
     this.sizeMessageTarget.innerHTML = this.data.get('sizeMessage')
     this.pricingMethodHeadingTarget.innerHTML = this.data.get(
-      'chosenMediumMessage'
+      'pricingMethodHeading'
     )
     this._clearPrice()
   }
