@@ -50,7 +50,7 @@ export default class extends Controller {
     }
   }
 
-  chooseArtMedium() {
+  setPricingMethod() {
     let button = event.target
     this.data.set('artMedium', button.value)
     this._updatePricingInfo(button.dataset)
