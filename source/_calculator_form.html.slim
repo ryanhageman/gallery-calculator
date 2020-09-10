@@ -1,24 +1,25 @@
 form.c-calculator-form
 
-  .c-calculator-form__field
-    label.c-calculator-form__heading> Length
-    br
-    input { type="number"
-            pattern="[0-9]*"
-            class="c-calculator-form__input"
-            data-testid="length"
-            data-target="calculator.length"
-            data-action="keyup->calculator#showSizeOnAnswerCard" }
+  .c-calculator-form__fields
+    .c-calculator-form__field
+      label.c-calculator-form__heading> Length
+      br
+      input { type="number"
+              pattern="[0-9]*"
+              class="c-calculator-form__input"
+              data-testid="length"
+              data-target="calculator.length"
+              data-action="keyup->calculator#showSizeOnAnswerCard" }
 
-  .c-calculator-form__field
-    label.c-calculator-form__heading> Width
-    br
-    input { type="number"
-            pattern="[0-9]*"
-            class="c-calculator-form__input"
-            data-testid="width"
-            data-target="calculator.width"
-            data-action="keyup->calculator#showSizeOnAnswerCard" }
+    .c-calculator-form__field
+      label.c-calculator-form__heading> Width
+      br
+      input { type="number"
+              pattern="[0-9]*"
+              class="c-calculator-form__input"
+              data-testid="width"
+              data-target="calculator.width"
+              data-action="keyup->calculator#showSizeOnAnswerCard" }
 
   == partial "category_buttons"
 

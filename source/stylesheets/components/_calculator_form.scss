@@ -3,11 +3,18 @@
   max-width: 90vw;
   width: 384px;
 
-
   &__heading {
     color: $color-text--secondary;
     font-size: 24px;
     margin-bottom: $global-spacing-unit-small;
+  }
+
+  &__fields {
+    display: flex;
+  }
+
+  &__field {
+    margin: 0 $global-spacing-unit-tiny;
   }
 
   &__input {
