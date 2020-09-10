@@ -11,8 +11,8 @@
   width: 128px;
 
   &.is-active {
-    background-color: $color-brand-primary--300;
-    color: $color-brand-primary--700;
+    background-color: $color-success--300;
+    color: $color-success--700;
   }
 
   &--large {
@@ -29,11 +29,10 @@
     width: 100%;
 
     &.is-disabled {
-      background-color: $color-brand-primary--100;
+      background-color: $color-success--100;
       border: 1px solid $color-text--tertiary;
-      box-shadow: 0 0 0 $color-brand-primary--100;
+      box-shadow: 0 0 0 $color-success--100;
       color: $color-text--tertiary;
     }
   }
 }
-
