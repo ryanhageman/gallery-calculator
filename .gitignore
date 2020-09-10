@@ -5,4 +5,10 @@
 build/
 
 node_modules
-source/javascripts/index.js
+source/javascript/index.js
+yarn-error.log
+
+spec/examples.txt
+
+cypress/screenshots
+cypress/videos

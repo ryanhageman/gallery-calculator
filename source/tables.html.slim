@@ -1,7 +1,7 @@
 div { class="o-layout"
       data-controller="category-button"
       data-category-button-category="original"
-      data-category-button-artwork-medium="" }
+      data-category-button-art-medium="" }
   = image_tag 'gallery-logo.png', class: 'c-logo'
 
   .c-navigation
@@ -28,8 +28,8 @@ div { class="o-layout"
               class="c-category-button__input"
               checked=true
               data-target="category-button.categoryButton"
-              data-action="category-button#categorySelect" }
-      label { class="c-button c-button--large c-category-button__label" for="original" } Original
+              data-action="category-button#toggleCategoryDropdown" }
+      label { class="c-button c-button--large c-category-button__label" for="original" data-testid="original-button"} Original
 
     .c-category-button
       input { type="radio"
@@ -38,76 +38,96 @@ div { class="o-layout"
               id="print"
               class="c-category-button__input"
               data-target="category-button.categoryButton"
-              data-action="category-button#categorySelect" }
-      label { class="c-button c-button--large c-category-button__label" for="print" } Print
+              data-action="category-button#toggleCategoryDropdown" }
+      label { class="c-button c-button--large c-category-button__label" for="print" data-testid="print-button"} Print
 
   div { class="c-category-button__dropdown c-category-button__dropdown--horizontal"
-        data-target="category-button.originalsDropdown" }
+        data-target="category-button.originalsDropdown"
+        data-testid="originals-dropdown"}
     .c-category-button
       input { type="radio"
-              name="artwork-medium"
+              name="art-medium"
               value="original--paper"
               id="original--paper"
               class="c-category-button__input"
-              data-target="category-button.artworkMediumButton"
-              data-action="category-button#artworkMediumSelect" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="original--paper" } Paper
+              data-target="category-button.artMediumButton"
+              data-action="category-button#chooseArtMedium" }
+      label { class="c-button c-category-button__label c-category-button__label--dropdown"
+              for="original--paper"
+              data-category-code="originalPaper"
+              data-testid="original-paper-button"} Paper
 
     .c-category-button
       input { type="radio"
-              name="artwork-medium"
+              name="art-medium"
               value="original--canvas"
               id="original--canvas"
               class="c-category-button__input"
-              data-target="category-button.artworkMediumButton"
-              data-action="category-button#artworkMediumSelect" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="original--canvas" } Canvas
+              data-target="category-button.artMediumButton"
+              data-action="category-button#chooseArtMedium" }
+      label { class="c-button c-category-button__label c-category-button__label--dropdown"
+              for="original--canvas"
+              data-category-code="originalCanvas"
+              data-testid="original-canvas-button"} Canvas
 
     .c-category-button
       input { type="radio"
-              name="artwork-medium"
+              name="art-medium"
               value="original--jackson-square"
               id="original--jackson-square"
               class="c-category-button__input"
-              data-target="category-button.artworkMediumButton"
-              data-action="category-button#artworkMediumSelect" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="original--jackson-square" } J. Square
+              data-target="category-button.artMediumButton"
+              data-action="category-button#chooseArtMedium" }
+      label { class="c-button c-category-button__label c-category-button__label--dropdown"
+              for="original--jackson-square"
+              data-category-code="originalJacksonSquare"
+              data-testid="original-jackson-square-button"} J. Square
 
   div { class="c-category-button__dropdown c-category-button__dropdown--horizontal is-hidden"
-        data-target="category-button.printsDropdown" }
+        data-target="category-button.printsDropdown"
+        data-testid="prints-dropdown"}
     .c-category-button
       input { type="radio"
-              name="artwork-medium"
+              name="art-medium"
               value="print--paper"
               id="print--paper"
               class="c-category-button__input"
-              data-target="category-button.artworkMediumButton"
-              data-action="category-button#artworkMediumSelect" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="print--paper" } Paper
+              data-target="category-button.artMediumButton"
+              data-action="category-button#chooseArtMedium" }
+      label { class="c-button c-category-button__label c-category-button__label--dropdown"
+              for="print--paper"
+              data-category-code="printPaper"
+              data-testid="print-paper-button"} Paper
 
     .c-category-button
       input { type="radio"
-              name="artwork-medium"
+              name="art-medium"
               value="print--canvas"
               id="print--canvas"
               class="c-category-button__input"
-              data-target="category-button.artworkMediumButton"
-              data-action="category-button#artworkMediumSelect" }
-      label { class="c-button c-category-button__label c-category-button__label--dropdown" for="print--canvas" } Canvas
+              data-target="category-button.artMediumButton"
+              data-action="category-button#chooseArtMedium" }
+      label { class="c-button c-category-button__label c-category-button__label--dropdown"
+              for="print--canvas"
+              data-category-code="printCanvas"
+              data-testid="print-canvas-button"} Canvas
 
   - data.categories.each do |category|
-    - category_code, category_title, category_pricing = category
+    - category_code, category_title, pricing_scheme = category
+    - price_per = data.prices[category_code]
     div { class="c-price-list-card__group"
-          data-target="category-button.#{{category_code}}" }
+          data-target="category-button.#{{category_code}}"
+          data-testid="#{{category_code}}"}
       - data.sizes.each do |size_title, dimension_list|
         div { class="c-price-table__card is-closed"
               data-controller="price-list-card"
               data-price-list-card-visibility="closed"
               data-price-list-card-title="#{size_title} x"
-              data-price-list-card-artwork-medium="#{category_title}"
+              data-price-list-card-art-medium="#{category_title}"
               data-target="price-list-card.card" }
 
           h2 {  class="c-price-table__heading"
+                data-testid='price-list-card-heading'
                 data-target="price-list-card.heading"
                 data-action="click->price-list-card#toggleDropdownTable" } #{size_title} x
           div{  class="c-price-table__dropdown-arrow-wrapper"
@@ -120,6 +140,10 @@ div { class="o-layout"
               - length, width = dimensions
               tr
                 td.c-price-table__size #{length} x #{width}
-                td.c-price-table__price $#{price(category_pricing, length, width, category_code)}
+                - artwork = { length: length,
+                              width: width,
+                              price_per: price_per,
+                              pricing_scheme: pricing_scheme }
+                td.c-price-table__price $#{price(artwork)}
 
   .o-layout__footer

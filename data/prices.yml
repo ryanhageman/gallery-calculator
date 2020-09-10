@@ -4,3 +4,6 @@ originalCanvas: 1.16
 originalJacksonSquare: 0.385
 printPaper: 5
 printCanvas: 7
+# TODO:
+# Jackson Square price changing to per sq in + total linear inches
+# Canvas prices changing to $26 per linear in
